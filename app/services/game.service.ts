@@ -5,13 +5,17 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class GameService {
+  private questionData = data;
+  private $questionChange: Observable<Question>;
+  private $questionChangeNotifier: any;
+  private currentQuestionIndex: number;
 
   constructor() {
-
+    this.$questionChange = Observable.create((observer:any) => this.$questionChangeNotifier = observer).share();
   }
 
   getQuestions():Array<Question> {
-    return data;
+    return this.questionData;
   }
 
   submitAnswer(question: Question, answer: string):boolean {
@@ -19,23 +23,30 @@ export class GameService {
   }
 
   onQuestionChanged(): Observable<Question> {
-
+    return this.$questionChange;
   }
 
   getCurrentQuestion():Question {
-
+    return this.questionData[this.currentQuestionIndex];
   }
 
   nextQuestion() {
-
+    if (this.currentQuestionIndex < this.questionData.length - 1) {
+      this.currentQuestionIndex++;
+    }
+    this.publishChangeQuestion();
   }
 
   previousQuestion() {
-
+    if (this.currentQuestionIndex > 0) {
+      this.currentQuestionIndex--;
+    }
+    this.publishChangeQuestion();
   }
 
   publishChangeQuestion() {
-
+    var question = this.getCurrentQuestion();
+    this.$questionChangeNotifier.next(question);
   }
 }
 
