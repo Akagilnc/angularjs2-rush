@@ -17,7 +17,7 @@ import {NgFor, NgClass} from '@angular/common';
       <div class='answer-title'>Answer:</div>
     </div>
     <div class='col-md-9'>
-      <div class='answer-placeholder' *ngIf="answer != null" [(ngModel)]="answer" (ngModelChange)="checkAnswer()">{{answer}}</div>
+      <div class='answer-placeholder' *ngIf="answer != null">{{answer}}</div>
     </div>
   </div>
 
@@ -150,16 +150,14 @@ export class AnswerComponent implements OnChanges{
         }
 
         this.answer += character;
-    }
-
-    checkAnswer(){
-        alert("checking Answer")
 
         if (this.question.answer && this.question.answer.length > 0 && this.answer.length == this.question.answer.length)
         {
             this.checkAnswer();
         }
+    }
 
+    checkAnswer(){
         var checkResult: boolean = this.gameService.submitAnswer(this.question, this.answer);
 
         if(checkResult) {
