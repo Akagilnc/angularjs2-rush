@@ -3,13 +3,15 @@ import {Question} from './interfaces';
 import {GameService, TimerService, SoundService} from './services';
 import {QuestionComponent} from './question.component';
 import {TimerComponent} from './timer.component';
+import {AnswerComponent} from './answer.component';
 @Component({
   selector: 'play',
   template: `
     <timer></timer>
     <question [question]="question"></question>
+    <answer [question]="question"></answer>
   `,
-  directives: [QuestionComponent, TimerComponent],
+  directives: [QuestionComponent, TimerComponent, AnswerComponent],
   providers: [GameService, TimerService, SoundService]
 })
 export class PlayComponent implements OnInit {

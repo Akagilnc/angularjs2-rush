@@ -91,6 +91,7 @@ export class AnswerComponent implements OnChanges{
 
     ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
         if (changes['question'] != null) {
+            this.answer = '';
             this._rearrangeKeyboard();
         }
     }
