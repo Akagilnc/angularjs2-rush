@@ -19,27 +19,35 @@ export class GameService {
   }
 
   submitAnswer(question: Question, answer: string):boolean {
-    throw new Error("not implemented");
+    if (question == null || question.answer == null || answer == null || question.answer.length == 0 || answer.length == 0 ) {
+      return false;
+    }
   }
 
   onQuestionChanged(): Observable<Question> {
-    throw new Error("not implemented");
+    return this.$questionChange;
   }
 
   getCurrentQuestion():Question {
-    throw new Error("not implemented");
+    return this.questionData[this.currentQuestionIndex];
   }
 
   nextQuestion() {
-    throw new Error("not implemented");
+    if (this.currentQuestionIndex < this.questionData.length - 1){
+      this.currentQuestionIndex++;
+      this.$questionChangeNotifier.next(this.getCurrentQuestion());
+    }
   }
 
   previousQuestion() {
-    throw new Error("not implemented");
+    if (this.currentQuestionIndex > 0) {
+      this.currentQuestionIndex--;
+      this.$questionChangeNotifier.next(this.getCurrentQuestion());
+    }
   }
 
-  publishChangeQuestion() {
-    throw new Error("not implemented");
+  publishChangeQuestion():Observable<Question> {
+    return this.$questionChange;
   }
 }
 
