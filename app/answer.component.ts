@@ -6,8 +6,6 @@ import {NgFor} from '@angular/common'
 
 
 
-
-
 export class AnswerComponent{
 
 }
