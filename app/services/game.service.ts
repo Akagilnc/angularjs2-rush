@@ -56,11 +56,23 @@ export class GameService {
   }
 }
 
-var data:Array<Question> = [{
-  question: 'Sample',
-  answer: 'Sample',
-  type: 'text',
-  position : 1,
-  imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
-  youtubeVideoId : '3TecLO0It98'
-}];
+var data:Array<Question> = [
+
+  {
+    question: "What's the best song in Lee's mind ",
+    answer: 'JPop',
+    type: 'text',
+    position : 2,
+    imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
+    youtubeVideoId : 'RHXS_ir2-10'
+  },
+  {
+    question: 'Sample',
+    answer: 'Sample',
+    type: 'text',
+    position : 1,
+    imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
+    youtubeVideoId : '3TecLO0It98'
+  }
+
+  ];

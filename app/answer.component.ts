@@ -14,7 +14,7 @@ import {NgFor, NgClass} from '@angular/common';
       <div class='answer-title'>Answer:</div>
     </div>
     <div class='col-md-9'>
-      <div class='answer-placeholder' [ngClass]="{check(answer): answer.length == activeQuestion.answer.length}">{{answer}}</div>
+      <div class='answer-placeholder' *ngIf="answer != null && answer != undefined">{{answer}}</div>
       <i class='fa fa-check fa-2x'></i>
     </div>
   </div>
@@ -144,11 +144,23 @@ export class AnswerComponent implements OnChanges{
         }
 
         this.answer += character;
-        if (this.answer == this.question.answer) {
-            this.gameService.nextQuestion();
+        if (this.question.answer && this.question.answer.length > 0 && this.answer.length == this.question.answer.length)
+        {
+            this.checkAnswer();
         }
+
     }
 
+    checkAnswer(){
+        
+        var answer: string = this.answer.toLocaleLowerCase();
+        var correctAnswer: string = this.question.answer.toLowerCase();
+        if (answer == correctAnswer) {
+            alert("answer correct")
+            this.gameService.nextQuestion();
+        }
+        
 
+    }
 
 }
