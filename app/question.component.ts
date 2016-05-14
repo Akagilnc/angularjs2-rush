@@ -60,4 +60,13 @@ export class QuestionComponent implements OnChanges {
       this.videoPlayer.playVideo();
     }
   }
+
+  previousQuestion() {
+    this.gamerService.previousQuestion();
+  }
+
+  nextQuestion() {
+    this.gamerService.nextQuestion();
+
+  }
 }

@@ -3,19 +3,21 @@
  */
 import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
 import {Question} from './interfaces';
-import {GameService} from './services/game.service';
+import {GameService, SoundService} from './services';
 import {NgFor, NgClass} from '@angular/common';
+//import {QuestionComponent} from './question.component';
+
 @Component({
     selector: 'answer',
     directives: [NgFor, NgClass],
+    //providers: [QuestionComponent, SoundService],
     template:`
   <div class='row answer-row'>
     <div class='col-md-3'>
       <div class='answer-title'>Answer:</div>
     </div>
     <div class='col-md-9'>
-      <div class='answer-placeholder' *ngIf="answer != null && answer != undefined">{{answer}}</div>
-      <i class='fa fa-check fa-2x'></i>
+      <div class='answer-placeholder' *ngIf="answer != null" [(ngModel)]="answer" (ngModelChange)="checkAnswer()">{{answer}}</div>
     </div>
   </div>
 
@@ -33,6 +35,7 @@ import {NgFor, NgClass} from '@angular/common';
       </div>
     </div>
   </div>
+
   `,
     styles: [`
   .answer-title {
@@ -87,12 +90,14 @@ export class AnswerComponent implements OnChanges{
     constructor(private gameService: GameService) {
         this.keyboards = null;
         this.question = null;
+        this.answer = '';
     }
 
     ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
         if (changes['question'] != null) {
             this._rearrangeKeyboard();
         }
+        console.log(this.question);
     }
 
     clear() {
@@ -144,14 +149,16 @@ export class AnswerComponent implements OnChanges{
         }
 
         this.answer += character;
+    }
+
+    checkAnswer(){
+        alert("checking Answer")
+
         if (this.question.answer && this.question.answer.length > 0 && this.answer.length == this.question.answer.length)
         {
             this.checkAnswer();
         }
 
-    }
-
-    checkAnswer(){
         var checkResult: boolean = this.gameService.submitAnswer(this.question, this.answer);
 
         if(checkResult) {
