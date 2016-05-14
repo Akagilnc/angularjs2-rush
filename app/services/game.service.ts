@@ -8,10 +8,14 @@ export class GameService {
   private questionData = data;
   private $questionChange: Observable<Question>;
   private $questionChangeNotifier: any;
-  private currentQuestionIndex: number;
+  private currentQuestionIndex: number = 0;
 
   constructor() {
-    this.$questionChange = Observable.create((observer:any) => this.$questionChangeNotifier = observer).share();
+    this.$questionChange = Observable.create((observer:any) => {
+      this.$questionChangeNotifier = observer;
+      this.publishChangeQuestion();
+    }).share();
+
   }
 
   getQuestions():Array<Question> {
@@ -23,11 +27,11 @@ export class GameService {
   }
 
   onQuestionChanged(): Observable<Question> {
-    throw new Error("not implemented");
+    return this.$questionChange;
   }
 
   getCurrentQuestion():Question {
-    throw new Error("not implemented");
+    return this.questionData[this.currentQuestionIndex];
   }
 
   nextQuestion() {
@@ -39,7 +43,7 @@ export class GameService {
   }
 
   publishChangeQuestion() {
-    throw new Error("not implemented");
+    this.$questionChangeNotifier.next(this.getCurrentQuestion());
   }
 }
 
@@ -48,7 +52,7 @@ var data:Array<Question> = [{
   answer: 'Sample',
   type: 'text',
   position : 1,
-  videoUrl : '',
-  imageUrl : '',
+  videoUrl : 'http://img-9gag-fun.9cache.com/photo/a8MxWEY_460sv.mp4',
+  imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
   audioUrl : ''
 }];

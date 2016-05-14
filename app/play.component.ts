@@ -1,15 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Question} from './interfaces';
-import {GameService, TimerService} from './services';
-
+import {GameService, TimerService, SoundService} from './services';
+import {QuestionComponent} from './question.component';
 @Component({
   selector: 'play',
   template: `
     <timer></timer>
     <question [question]="question"></question>
-    <answer [question]="question" [answer]="answer" (onSubmitAnswer)="onSubmitAnswer()"></answer>
-    <progress-bar></progress-bar>
-  `
+  `,
+  directives: [QuestionComponent],
+  providers: [GameService, TimerService, SoundService]
 })
 export class PlayComponent implements OnInit {
   private question: Question;
