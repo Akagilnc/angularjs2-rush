@@ -6,4 +6,5 @@ export interface Question {
   videoUrl?: string;
   imageUrl?: string;
   audioUrl?: string;
+  youtubeVideoId?: string;
 }

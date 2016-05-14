@@ -52,7 +52,6 @@ var data:Array<Question> = [{
   answer: 'Sample',
   type: 'text',
   position : 1,
-  videoUrl : 'http://img-9gag-fun.9cache.com/photo/a8MxWEY_460sv.mp4',
   imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
-  audioUrl : ''
+  youtubeVideoId : '3TecLO0It98'
 }];

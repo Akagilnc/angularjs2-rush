@@ -3,6 +3,7 @@ import {CORE_DIRECTIVES} from '@angular/common';
 import {Question} from './interfaces';
 import {GameService, TimerService, SoundService} from './services';
 import {VideoComponent} from './video.component';
+import {YoutubeComponent} from './youtube.component';
 @Component({
   selector: 'question',
   template: `
@@ -26,15 +27,15 @@ import {VideoComponent} from './video.component';
 
         <img class="img-responsive" *ngIf="question.imageUrl !=''" [src]="question.imageUrl"/>
 
-        <video-cmp [source]="question.videoUrl" [width]="videoWidth" [height]="videoHeight" *ngIf="question.videoUrl" [delay]="delay"></video-cmp>
+        <youtube-cmp [source]="question.youtubeVideoId" [width]="videoWidth" [height]="videoHeight" *ngIf="question.youtubeVideoId" [delay]="delay"></youtube-cmp>
       </div>
     </div>
   </div>
   `,
-  directives: [CORE_DIRECTIVES, VideoComponent]
+  directives: [CORE_DIRECTIVES, YoutubeComponent]
 })
 export class QuestionComponent implements OnChanges {
-  @ViewChild(VideoComponent) videoPlayer:VideoComponent;
+  @ViewChild(YoutubeComponent) videoPlayer:YoutubeComponent;
   @Input('question') question:Question;
   private delay = 500;
   private videoWidth = 320;
@@ -47,14 +48,15 @@ export class QuestionComponent implements OnChanges {
 
   ngOnChanges(changes: any) {
     this.play();
+    console.log(this.question);
   }
 
   play() {
-    if (this.question.audioUrl) {
-      this.soundService.play(this.question.audioUrl, this.delay);
-    }
+    // if (this.question.audioUrl != '') {
+    //   this.soundService.play(this.question.audioUrl, this.delay);
+    // }
 
-    if (this.videoPlayer && this.question.videoUrl) {
+    if (this.videoPlayer && this.question.youtubeVideoId) {
       this.videoPlayer.playVideo();
     }
   }
