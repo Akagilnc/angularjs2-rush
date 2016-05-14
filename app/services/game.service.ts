@@ -46,5 +46,9 @@ export class GameService {
 var data:Array<Question> = [{
   question: 'Sample',
   answer: 'Sample',
-  type: 'text'
+  type: 'text',
+  position : 1,
+  videoUrl : '',
+  imageUrl : '',
+  audioUrl : ''
 }];
