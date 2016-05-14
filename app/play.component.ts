@@ -2,13 +2,14 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Question} from './interfaces';
 import {GameService, TimerService, SoundService} from './services';
 import {QuestionComponent} from './question.component';
+import {TimerComponent} from './timer.component';
 @Component({
   selector: 'play',
   template: `
     <timer></timer>
     <question [question]="question"></question>
   `,
-  directives: [QuestionComponent],
+  directives: [QuestionComponent, TimerComponent],
   providers: [GameService, TimerService, SoundService]
 })
 export class PlayComponent implements OnInit {
@@ -42,6 +43,7 @@ export class PlayComponent implements OnInit {
     } else {
       alert('You may try again later')
     }
+    this.timerService.startTimer();
     this.gameService.nextQuestion();
   }
 }

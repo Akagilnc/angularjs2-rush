@@ -12,8 +12,9 @@ import {Component, ElementRef, OnChanges, Input, AfterViewInit, NgZone} from '@a
 export class YoutubeComponent implements AfterViewInit, OnChanges {
   @Input('source') source:string = null;
   private player:any;
-
+  private isPlayerReady:boolean;
   constructor(private ngZone: NgZone) {
+    this.isPlayerReady = false;
     var tag = document.createElement('script');
 
     tag.src = "https://www.youtube.com/iframe_api";
@@ -23,10 +24,10 @@ export class YoutubeComponent implements AfterViewInit, OnChanges {
     var self = this;
     window.onYouTubePlayerAPIReady = () => {
       if (self.player) return;
-      console.log('Init player');
       self.player = new YT.Player('ytplayer', {
         events: {
           onReady: () => {
+            self.isPlayerReady = true;
             self.playVideo();
           }
         }
@@ -39,7 +40,7 @@ export class YoutubeComponent implements AfterViewInit, OnChanges {
   }
 
   playVideo() {
-    if (typeof(this.player) =='object') {
+    if (typeof(this.player) =='object' && this.isPlayerReady) {
       this.player.stopVideo();
       this.player.loadVideoById(this.source);
       this.player.playVideo();
