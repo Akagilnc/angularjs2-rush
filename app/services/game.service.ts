@@ -48,7 +48,6 @@ export class GameService {
   nextQuestion() {
     if (this.currentQuestionIndex < this.questionData.length - 1){
       this.currentQuestionIndex++;
-      alert("start next" + this.currentQuestionIndex);
       this.$questionChangeNotifier.next(this.getCurrentQuestion());
     }
   }

@@ -11,32 +11,7 @@ import {NgFor, NgClass} from '@angular/common';
     selector: 'answer',
     directives: [NgFor, NgClass],
     //providers: [QuestionComponent, SoundService],
-    template:`
-  <div class='row answer-row'>
-    <div class='col-md-3'>
-      <div class='answer-title'>Answer:</div>
-    </div>
-    <div class='col-md-9'>
-      <div class='answer-placeholder' *ngIf="answer != null">{{answer}}</div>
-    </div>
-  </div>
-
-  <div class='row keyboard-row' *ngIf="keyboards != null">
-    <div class='col-md-12'>
-      <div class="row keyboard">
-        <div class="col-md-12 keyboard-line">
-          <span *ngFor="let key of keyboards[0]" class="key" (click)="selectKey(key)">{{key}}</span>
-
-
-        </div>
-        <div class="col-md-12 keyboard-line">
-          <span *ngFor="let key of keyboards[1]" class="key" (click)="selectKey(key)">{{key}}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  `,
+    templateUrl: './app/answer.component.html',
     styles: [`
   .answer-title {
     font-size: 1.5em;
@@ -98,7 +73,6 @@ export class AnswerComponent implements OnChanges{
             this.answer = '';
             this._rearrangeKeyboard();
         }
-        console.log(this.question);
     }
 
     clear() {
