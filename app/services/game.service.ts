@@ -23,30 +23,23 @@ export class GameService {
   }
 
   onQuestionChanged(): Observable<Question> {
-    return this.$questionChange;
+    throw new Error("not implemented");
   }
 
   getCurrentQuestion():Question {
-    return this.questionData[this.currentQuestionIndex];
+    throw new Error("not implemented");
   }
 
   nextQuestion() {
-    if (this.currentQuestionIndex < this.questionData.length - 1) {
-      this.currentQuestionIndex++;
-    }
-    this.publishChangeQuestion();
+    throw new Error("not implemented");
   }
 
   previousQuestion() {
-    if (this.currentQuestionIndex > 0) {
-      this.currentQuestionIndex--;
-    }
-    this.publishChangeQuestion();
+    throw new Error("not implemented");
   }
 
   publishChangeQuestion() {
-    var question = this.getCurrentQuestion();
-    this.$questionChangeNotifier.next(question);
+    throw new Error("not implemented");
   }
 }
 
