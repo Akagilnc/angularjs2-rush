@@ -5,6 +5,8 @@
 import {Component} from '@angular/core';
 import {PlayComponent} from './play.component';
 
+
+import {TimerService} from './services';
 @Component({
     selector:'app',
     directives:[PlayComponent],
