@@ -8,10 +8,14 @@ export class GameService {
   private questionData = data;
   private $questionChange: Observable<Question>;
   private $questionChangeNotifier: any;
-  private currentQuestionIndex: number;
+  private currentQuestionIndex: number = 0;
 
   constructor() {
-    this.$questionChange = Observable.create((observer:any) => this.$questionChangeNotifier = observer).share();
+    this.$questionChange = Observable.create((observer:any) => {
+      this.$questionChangeNotifier = observer;
+      this.publishChangeQuestion();
+    }).share();
+
   }
 
   getQuestions():Array<Question> {
@@ -46,8 +50,9 @@ export class GameService {
     }
   }
 
-  publishChangeQuestion():Observable<Question> {
-    return this.$questionChange;
+
+  publishChangeQuestion() {
+    this.$questionChangeNotifier.next(this.getCurrentQuestion());
   }
 }
 
@@ -56,7 +61,6 @@ var data:Array<Question> = [{
   answer: 'Sample',
   type: 'text',
   position : 1,
-  videoUrl : '',
-  imageUrl : '',
-  audioUrl : ''
+  imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
+  youtubeVideoId : '3TecLO0It98'
 }];
