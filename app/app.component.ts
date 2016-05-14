@@ -6,8 +6,8 @@ import {Component} from '@angular/core';
 import {PlayComponent} from './play.component';
 import {AnswerComponent} from './answer.component';
 import {Question} from './interfaces'
-import {GameService} from "./services/game.service";
-import {TimerService} from './services';
+import {GameService, TimerService, SoundService, HighscoreService} from "./services";
+
 
 @Component({
     selector:'app',
