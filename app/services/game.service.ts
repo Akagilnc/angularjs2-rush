@@ -23,9 +23,19 @@ export class GameService {
   }
 
   submitAnswer(question: Question, answer: string):boolean {
-    if (question == null || question.answer == null || answer == null || question.answer.length == 0 || answer.length == 0 ) {
+    if (!question || question.answer == null || !answer || question.answer.length == 0 || answer.length == 0 ) {
       return false;
     }
+
+    answer = answer.toLocaleLowerCase();
+    var correctAnswer: string = question.answer.toLowerCase();
+
+    if (answer == correctAnswer) {
+      alert("answer correct");
+      return true;
+    }
+    
+    return false;
   }
 
   onQuestionChanged(): Observable<Question> {

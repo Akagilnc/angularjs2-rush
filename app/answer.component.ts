@@ -152,14 +152,16 @@ export class AnswerComponent implements OnChanges{
     }
 
     checkAnswer(){
-        
-        var answer: string = this.answer.toLocaleLowerCase();
-        var correctAnswer: string = this.question.answer.toLowerCase();
-        if (answer == correctAnswer) {
-            alert("answer correct")
-            this.gameService.nextQuestion();
+        var checkResult: boolean = this.gameService.submitAnswer(this.question, this.answer);
+
+        if(checkResult) {
+            //display correct information
+        }else {
+            //display wrong information
         }
-        
+
+        this.gameService.nextQuestion();
+
 
     }
 
