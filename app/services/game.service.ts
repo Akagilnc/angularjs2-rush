@@ -85,7 +85,7 @@ export class GameService {
   }
 
   getCompletedPercent() {
-    return Math.floor((this.totalCompletedQuestion / this.questionData.length) * 100);
+    return Math.floor((this.currentQuestionIndex / this.questionData.length) * 100);
   }
 
   getScore() {

@@ -1,3 +1,9 @@
+.app-container {
+  background-image: url('/app/assets/sky.jpg');
+  background-size: 100% 100%;
+  background-origin: border-box;
+  min-height: 500px;
+}
 .header {
   margin-top: 1em;
   margin-bottom: 2em;

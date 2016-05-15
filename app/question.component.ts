@@ -30,9 +30,11 @@ import {TimerComponent} from './timer.component';
     <div class="row question-content">
       <div class="col-md-12">
         <a *ngIf="question.audioUrl" class="btn btn-default btn-sm" (click)='play()'><i class="fa fa-play"></i></a>
-        <span>{{ question.question }}</span>
+        <div class="question-text">
+          <span>{{ question.question }}</span>
 
-        <span style="font-style: italic" *ngIf="question.questionNode">/ {{question.questionNode}}</span>
+          <span style="font-style: italic" *ngIf="question.questionNode">/ {{question.questionNode}}</span>
+        </div>
 
         <img class="img-responsive" *ngIf="question.imageUrl !=''" [src]="question.imageUrl"/>
 
