@@ -10,6 +10,7 @@ export class GameService {
   private $questionChangeNotifier: any;
   private currentQuestionIndex: number = 0;
   private totalSuccessQuestion: number = 0;
+  private totalCompletedQuestion: number = 0;
 
   constructor() {
     this.$questionChange = Observable.create((observer:any) => {
@@ -32,6 +33,7 @@ export class GameService {
     answer = answer.toLocaleLowerCase();
     var correctAnswer: string = question.answer.toLowerCase();
 
+    this.totalCompletedQuestion++;
     if (answer == correctAnswer) {
       this.totalSuccessQuestion++;
       return true;
@@ -66,6 +68,14 @@ export class GameService {
   publishChangeQuestion() {
     this.$questionChangeNotifier.next(this.getCurrentQuestion());
   }
+
+  getCompletedPercent() {
+    return Math.floor((this.totalCompletedQuestion / this.questionData.length) * 100);
+  }
+
+  getScore() {
+    return this.totalSuccessQuestion * 10;
+  }
 }
 
 var data:Array<Question> = [
@@ -75,7 +85,7 @@ var data:Array<Question> = [
     answer: 'JPop',
     type: 'text',
     position : 2,
-    imageUrl : '/app/assets/Q 3-6 food.jpg',
+    imageUrl : '/app/assets/q-3-6-food.jpg',
     youtubeVideoId : 'RHXS_ir2-10'
   },
   {
@@ -131,10 +141,10 @@ var data:Array<Question> = [
     answer: '',
     type: 'text',
     position: 6,
-    imageUrl: './assets/Q 3-6 food.jpg',
+    imageUrl: './assets/q-3-6-food.jpg',
     youtubeVideoId: 'eqOvWOr9ayw',
     videoUrl: '',
-    audioUrl: './assets/3-6 food.mp3'
+    audioUrl: './assets/3-6-food.mp3'
   },
 
 ];

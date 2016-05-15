@@ -3,6 +3,7 @@ import {Question} from './interfaces';
 import {GameService, TimerService, SoundService} from './services';
 import {QuestionComponent} from './question.component';
 import {AnswerComponent} from './answer.component';
+import {ProgressBarComponent} from './progress-bar.component';
 @Component({
   selector: 'play',
   template: `
@@ -14,17 +15,24 @@ import {AnswerComponent} from './answer.component';
 
     <div class="row">
       <div class="col-md-12">
-        <answer [question]="question" [answer]="answer" (onSubmitAnswer)="onSubmitAnswer()"></answer>
+        <answer [question]="question" [answer]="answer" (onSubmitAnswer)="onSubmitAnswer($event)"></answer>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <progress-bar [completedPercent]="completedPercent"></progress-bar>
       </div>
     </div>
   `,
-  directives: [QuestionComponent, AnswerComponent],
+  directives: [QuestionComponent, AnswerComponent, ProgressBarComponent],
   providers: [GameService, TimerService, SoundService]
 })
 export class PlayComponent implements OnInit {
+  @ViewChild(AnswerComponent) answerComponent:AnswerComponent;
   private question: Question;
   private answer: string;
-  private score: number;
+  private completedPercent: number;
 
   constructor(private gameService: GameService,
               private timerService: TimerService) {
@@ -36,7 +44,7 @@ export class PlayComponent implements OnInit {
     this.question = this.gameService.getCurrentQuestion();
 
     this.timerService.onTimeEnd().subscribe(() => {
-      this.onSubmitAnswer();
+      this.answerComponent.submitAnswer();
     });
 
     this.gameService.onQuestionChanged().subscribe((question:Question) => {
@@ -44,15 +52,17 @@ export class PlayComponent implements OnInit {
     })
   }
 
-  onSubmitAnswer() {
-    var result = this.gameService.submitAnswer(this.question, this.answer);
+  onSubmitAnswer(answer:string) {
+    console.log(this.question, this.answer, answer);
+    var result = this.gameService.submitAnswer(this.question, answer);
     if (result) {
-      this.score += 10;
-      alert('You did it!');
+      alert('Your answer is correct. Click to go to next question!');
     } else {
-      alert('You may try again later')
+      alert('Your answer is NOT correct. Click to go to next question!')
     }
+    this.completedPercent = this.gameService.getCompletedPercent();
     this.timerService.startTimer();
     this.gameService.nextQuestion();
   }
+
 }
