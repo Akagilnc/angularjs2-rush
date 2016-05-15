@@ -12,8 +12,8 @@ import {AppSettings} from './app-settings';
   template: `
     <div class="row">
       <div class="col-md-12">
-        <div class="pull-right">
-          {{score}}
+        <div class="pull-right user-score">
+          Your score: {{score}}
         </div>
       </div>
     </div>

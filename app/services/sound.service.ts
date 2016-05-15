@@ -6,14 +6,19 @@ export class SoundService {
 
   play(path: string, delay: number) {
     if (this._audio) {
-      this._audio.pause();
       delete this._audio;
     }
 
     this._audio = new Audio(path);
 
     setTimeout(() => {
-      this._audio.play();
+      try{
+        this._audio.play();
+      }
+      catch(e) {
+
+      }
+
     }, delay);
 
   }
