@@ -49,7 +49,7 @@ export class AnswerComponent implements OnChanges {
             for (var i = 0; i < this.question.answer.length; i++) {
                 this.answerHoles.push('_');
             }
-            this.answerHoles.push('_');
+            //this.answerHoles.push('_');
         }
     }
 
@@ -90,7 +90,9 @@ export class AnswerComponent implements OnChanges {
         this.currentAnswerIndex++;
 
         this.answer = this.answerHoles.join('').trim();
-        if (this.question.answer.length > 0 && this.answer.length >= this.question.answer.length)
+        var answer = this.answer.replace("_", "");
+
+        if (this.question.answer.length > 0 && answer.length >= this.question.answer.length)
         {
             this.submitAnswer();
         }

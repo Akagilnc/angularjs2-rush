@@ -41,7 +41,7 @@ export class GameService {
       return false;
     }
 
-    answer = answer.toLocaleLowerCase();
+    answer = answer.toLowerCase();
     var correctAnswer: string = question.answer.toLowerCase();
 
     if (answer == correctAnswer && !question.isAnswered) {
