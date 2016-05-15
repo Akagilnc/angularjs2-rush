@@ -16,12 +16,12 @@ import {IntroductionComponent} from "./introduction.component";
     directives:[PlayComponent, AnswerComponent, ROUTER_DIRECTIVES],
     providers:[GameService],
     template:`
-    <div class="container">
+    <div class="container" style="background-image: url('/app/assets/sky.jpg'); background-size: 100% 100%;background-origin: border-box">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 header">
                 <div class="row">
                     <div class="col-md-8">
-                        <div class="logo">Listen&Learn</div>
+                        <div class="logo">Hi ひらがな</div>
                     </div>
                 </div>
             </div>
@@ -42,6 +42,7 @@ import {IntroductionComponent} from "./introduction.component";
 export class AppComponent implements OnInit{
     private activeQuestion:Question;
     private question:Question;
+    private imgUrl = "https://pixabay.com/static/uploads/photo/2013/07/12/19/20/shinto-154572_960_720.png";
 
     constructor(private gameService: GameService, private router: Router) {
 

@@ -235,7 +235,7 @@ var data:Array<Question> = [
     youtubeVideoId : ''
   },
   {
-    question: 'ka-ka-na',
+    question: 'sa-ka-na',
     questionNode: 'fish',
     answer: 'さかな',
     displayAnswer: 'な,に,さ,か,の',

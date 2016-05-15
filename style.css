@@ -6,6 +6,7 @@
 .logo {
   font-size: 2em;
   font-weight: bolder;
+  color: white;
 }
 
 .timer {
@@ -15,19 +16,24 @@
 .question-name {
   font-size: 1.5em;
   font-weight: bold;
+  color: white;
 }
 
 .question-header {
   margin-bottom: 0.5em;
+  color: white;
 }
 
 .question-content {
   margin-bottom: 2em;
+  color: white;
+  font-size:1.5em;
 }
 
 .answer-title {
     font-size: 1.5em;
     font-weight: bold;
+    color: white;
   }
 
   .answer-placeholder {
@@ -35,29 +41,36 @@
     display: inline-block;
     border-bottom: 2px solid black;
     height: 24px;
+    color: white;
   }
 
   .answer-row {
     margin-bottom: 1em;
+    color: white;
   }
 
   .keyboard {
     text-align: center;
+    color: white;
   }
 
   .keyboard .key{
     border: 1px solid black;
     border-radius: 5px;
+    border-color: white;
     margin-left: 5px;
     padding: 10px;
     text-align: center;
     cursor: pointer;
     display: inline-block;
     width: 39px;
+    color: white;
   }
 
   .keyboard .key:hover{
-    background-color: gray;
+    background-color: white;
+    border-color: dodgerblue;
+    color: dodgerblue;
   }
 
   .keyboard-line {
