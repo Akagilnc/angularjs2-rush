@@ -91,6 +91,10 @@ export class GameService {
   getScore() {
     return this.score;
   }
+
+  isLastQuestion() {
+    return this.currentQuestionIndex == this.questionData.length - 1;
+  }
 }
 
 var data:Array<Question> = [

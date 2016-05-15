@@ -9,7 +9,7 @@ import {AnswerComponent} from './answer.component';
 import {Question} from './interfaces'
 import {GameService, TimerService, SoundService, HighscoreService} from "./services";
 import {IntroductionComponent} from "./introduction.component";
-
+import {ThankyouComponent} from './thankyou.component';
 
 @Component({
     selector:'app',
@@ -37,7 +37,8 @@ import {IntroductionComponent} from "./introduction.component";
 
 @RouteConfig([
     {path: '/', name: 'IntroductionComponent', component: IntroductionComponent},
-    {path: '/play', name: 'PlayComponent', component: PlayComponent}
+    {path: '/play', name: 'PlayComponent', component: PlayComponent},
+    {path: '/thankyou', name: 'Thankyou', component: ThankyouComponent}
 ])
 export class AppComponent implements OnInit{
     private activeQuestion:Question;

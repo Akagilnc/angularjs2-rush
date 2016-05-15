@@ -6,7 +6,7 @@ import {AnswerComponent} from './answer.component';
 import {ProgressBarComponent} from './progress-bar.component';
 import {ModalComponent} from './modal.component';
 import {AppSettings} from './app-settings';
-
+import {Router} from 'angular2/router';
 @Component({
   selector: 'play',
   template: `
@@ -70,7 +70,8 @@ export class PlayComponent implements OnInit {
   private modalClass = 'modal-sm';
   private score:number = 0;
   constructor(private gameService: GameService,
-              private timerService: TimerService) {
+              private timerService: TimerService,
+              private router: Router) {
 
   }
 
@@ -103,7 +104,12 @@ export class PlayComponent implements OnInit {
 
   closeModalAndNextLevel() {
     this.resultModal.close();
-    this.gameService.nextQuestion();
+    if (this.gameService.isLastQuestion()) {
+      this.router.navigate(['Thankyou']);
+    } else {
+      this.gameService.nextQuestion();
+    }
+
     //this.timerService.startTimer();
   }
 
