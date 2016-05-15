@@ -9,7 +9,7 @@ export class GameService {
   private $questionChange: Observable<Question>;
   private $questionChangeNotifier: any;
   private currentQuestionIndex: number = 0;
-  private totalSuccessQuestion:
+  private totalSuccessQuestion: number = 0;
 
   constructor() {
     this.$questionChange = Observable.create((observer:any) => {
@@ -17,6 +17,7 @@ export class GameService {
       this.publishChangeQuestion();
     }).share();
 
+    this.totalSuccessQuestion = 0;
   }
 
   getQuestions():Array<Question> {
@@ -32,7 +33,7 @@ export class GameService {
     var correctAnswer: string = question.answer.toLowerCase();
 
     if (answer == correctAnswer) {
-      alert("answer correct");
+      this.totalSuccessQuestion++;
       return true;
     }
 
@@ -84,6 +85,45 @@ var data:Array<Question> = [
     position : 1,
     imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
     youtubeVideoId : '3TecLO0It98'
-  }
-
+  },
+  {
+    question: '1-6',
+    answer: '',
+    type: 'text',
+    position: 6,
+    imageUrl: '',
+    youtubeVideoId: '7WAQOUE74sk'
+  },
+  {
+    question: '1-7',
+    answer: '',
+    type: 'text',
+    position: 7,
+    imageUrl: '',
+    youtubeVideoId: 'n4YaDxr73HI'
+  },
+  {
+    question: '1-8',
+    answer: '',
+    type: 'text',
+    position: 8,
+    imageUrl: '',
+    youtubeVideoId: 'bGW_2hJrLVY'
+  },
+  {
+    question: '1-9',
+    answer: '',
+    type: 'text',
+    position: 9,
+    imageUrl: '',
+    youtubeVideoId: '3sU4_fmPDMo'
+  },
+  {
+    question: '1-10',
+    answer: '',
+    type: 'text',
+    position: 10,
+    imageUrl: '',
+    youtubeVideoId: 'eqOvWOr9ayw'
+  },
   ];

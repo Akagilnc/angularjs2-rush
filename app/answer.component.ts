@@ -1,92 +1,29 @@
 /**
  * Created by deronlee on 5/14/16.
  */
-import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange, EventEmitter} from '@angular/core';
 import {Question} from './interfaces';
-import {GameService} from './services/game.service';
+import {GameService, SoundService} from './services';
 import {NgFor, NgClass} from '@angular/common';
+//import {QuestionComponent} from './question.component';
+
 @Component({
     selector: 'answer',
     directives: [NgFor, NgClass],
-    template:`
-  <div class='row answer-row'>
-    <div class='col-md-3'>
-      <div class='answer-title'>Answer:</div>
-    </div>
-    <div class='col-md-9'>
-      <div class='answer-placeholder' *ngIf="answer != null && answer != undefined">{{answer}}</div>
-      <i class='fa fa-check fa-2x'></i>
-    </div>
-  </div>
-
-  <div class='row keyboard-row' *ngIf="keyboards != null">
-    <div class='col-md-12'>
-      <div class="row keyboard">
-        <div class="col-md-12 keyboard-line">
-          <span *ngFor="let key of keyboards[0]" class="key" (click)="selectKey(key)">{{key}}</span>
-
-
-        </div>
-        <div class="col-md-12 keyboard-line">
-          <span *ngFor="let key of keyboards[1]" class="key" (click)="selectKey(key)">{{key}}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  `,
-    styles: [`
-  .answer-title {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-
-  .answer-placeholder {
-    width: 120px;
-    display: inline-block;
-    border-bottom: 2px solid black;
-    height: 24px;
-  }
-
-  .answer-row {
-    margin-bottom: 1em;
-  }
-
-  .keyboard {
-    text-align: center;
-  }
-
-  .keyboard .key{
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-left: 5px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    display: inline-block;
-    width: 39px;
-  }
-
-  .keyboard .key:hover{
-    background-color: gray;
-  }
-
-  .keyboard-line {
-    margin-bottom: 10px;
-  }
-
-  .keyboard-row {
-    margin-bottom: 2em;
-  }
-  `]
+    //providers: [QuestionComponent, SoundService],
+    templateUrl: './app/answer.component.html',
+    styles: []
 })
 export class AnswerComponent implements OnChanges{
     @Input('question') question: Question;
-    private answer: string = '';
+    @Input('answer') answer: string;
+
     private keyboards: Array<Array<string>>;
 
     constructor(private gameService: GameService) {
         this.keyboards = null;
         this.question = null;
+        this.answer = '';
     }
 
     ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
@@ -145,11 +82,11 @@ export class AnswerComponent implements OnChanges{
         }
 
         this.answer += character;
+
         if (this.question.answer && this.question.answer.length > 0 && this.answer.length == this.question.answer.length)
         {
             this.checkAnswer();
         }
-
     }
 
     checkAnswer(){

@@ -5,7 +5,7 @@ import {ROUTER_DIRECTIVES} from '@angular/router';
   selector: 'introduction',
   template: `
   <p>Welcome to our app</p>
-  <a class='btn btn-primary' [routerLink]='/play'>Start game</a>
+  <a class='btn btn-primary' [routerLink]='["/play"]'>Start game</a>
   `,
   directives: [ROUTER_DIRECTIVES]
 })

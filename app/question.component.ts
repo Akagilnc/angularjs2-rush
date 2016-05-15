@@ -2,8 +2,9 @@ import {Component, Input, OnChanges, ViewChild} from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {Question} from './interfaces';
 import {GameService, TimerService, SoundService} from './services';
-import {VideoComponent} from './video.component';
 import {YoutubeComponent} from './youtube.component';
+import {TimerComponent} from './timer.component';
+
 @Component({
   selector: 'question',
   template: `
@@ -15,8 +16,7 @@ import {YoutubeComponent} from './youtube.component';
       </div>
       <div class="col-md-7">
         <div class="navigation-buttons pull-right">
-          <a class="btn btn-default" (click)="previousQuestion()"><i class="fa fa-caret-left"></i></a>
-          <a class="btn btn-default" (click)="nextQuestion()"><i class="fa fa-caret-right"></i></a>
+          <timer class="pull-right"></timer>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@ import {YoutubeComponent} from './youtube.component';
     </div>
   </div>
   `,
-  directives: [CORE_DIRECTIVES, YoutubeComponent]
+  directives: [CORE_DIRECTIVES, YoutubeComponent, TimerComponent]
 })
 export class QuestionComponent implements OnChanges {
   @ViewChild(YoutubeComponent) videoPlayer:YoutubeComponent;
@@ -59,5 +59,14 @@ export class QuestionComponent implements OnChanges {
     if (this.videoPlayer && this.question.youtubeVideoId) {
       this.videoPlayer.playVideo();
     }
+  }
+
+  previousQuestion() {
+    this.gamerService.previousQuestion();
+  }
+
+  nextQuestion() {
+    this.gamerService.nextQuestion();
+
   }
 }
