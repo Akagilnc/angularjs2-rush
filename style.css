@@ -80,3 +80,16 @@
   .question-content {
     margin-bottom: 2em;
   }
+
+  .answer-hole {
+    width: 30px;
+    padding-bottom: 2px;
+    display:block;
+    font-size: 2em;
+    float:left;
+  }
+
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto !important;
+  }

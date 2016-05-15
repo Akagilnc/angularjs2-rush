@@ -26,8 +26,11 @@ export class AnswerComponent implements OnChanges {
     private appTitle = AppSettings.TITLE;
     private modalSubmitButtonLabel = 'Next question';
     private characterListmodalSubmitLabel = 'OK';
-    private modalClass = 'modal-sm';
+    private modalClass = 'modal-lg';
 
+    private answerHoles: Array<any>;
+    private answerArray: Array<any>;
+    private currentAnswerIndex = 0;
     constructor(private gameService: GameService) {
         this.keyboards = null;
         this.question = null;
@@ -40,7 +43,13 @@ export class AnswerComponent implements OnChanges {
     ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
         if (changes['question'] != null) {
             this.answer = '';
+            this.answerHoles = [];
+            this.currentAnswerIndex = 0;
             this._rearrangeKeyboard();
+            for (var i = 0; i < this.question.answer.length; i++) {
+                this.answerHoles.push('_');
+            }
+            this.answerHoles.push('_');
         }
     }
 
@@ -70,15 +79,17 @@ export class AnswerComponent implements OnChanges {
 
     selectKey(character: string) {
         if (character == '<') {
-            if (this.answer.length > 0) {
-                this.answer = this.answer.slice(0, this.answer.length -1);
+            if (this.currentAnswerIndex > 0) {
+                this.answerHoles[this.currentAnswerIndex] = '';
+                this.currentAnswerIndex--;
             }
             return;
         }
 
-        this.answer += character;
-        this.answer = this.answer.trim();
-        console.log(this.answer, this.answer.length, this.question.answer.length);
+        this.answerHoles[this.currentAnswerIndex] = character;
+        this.currentAnswerIndex++;
+
+        this.answer = this.answerHoles.join('').trim();
         if (this.question.answer.length > 0 && this.answer.length >= this.question.answer.length)
         {
             this.submitAnswer();

@@ -20,7 +20,7 @@ import {TimerComponent} from './timer.component';
 
         <div class="navigation-buttons pull-right">
 
-          <timer></timer>
+
         </div>
 
       </div>

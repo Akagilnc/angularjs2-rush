@@ -3,7 +3,9 @@
         <div class='answer-title'>Answer:</div>
     </div>
     <div class='col-md-9'>
-        <div class='answer-placeholder' *ngIf="answer != null">{{answer}}</div>
+        <span class='answer-hole' *ngFor="let item of answerHoles">{{item}}</span>
+        <!--<div class='answer-placeholder' *ngIf="answer != null">{{answer}}</div>-->
+        <div class="clear"></div>
     </div>
 </div>
 
@@ -36,6 +38,6 @@
     [closeOnOutsideClick]="true">
 
     <modal-content>
-    Character list
+    <img class="img-responsive" src="/app/assets/chart.png">
     </modal-content>
 </modal>
