@@ -39,15 +39,23 @@ export class YoutubeComponent implements AfterViewInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.playVideo();
+    if (typeof(this.player) !='object' || !this.isPlayerReady) {
+      return;
+    }
+    if (!this.source) {
+      return this.player.pauseVideo();
+    }
+    return this.playVideo();
   }
 
   playVideo() {
-    if (typeof(this.player) =='object' && this.isPlayerReady) {
-      this.player.stopVideo();
-      this.player.loadVideoById(this.source);
-      this.player.playVideo();
+    if (typeof(this.player) !='object' || !this.isPlayerReady || !this.source) {
+      return;
     }
+
+    this.player.loadVideoById(this.source);
+    this.player.playVideo();
+
   }
 
   ngAfterViewInit() {

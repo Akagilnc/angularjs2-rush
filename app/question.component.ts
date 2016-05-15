@@ -38,7 +38,7 @@ import {TimerComponent} from './timer.component';
 
         <img class="img-responsive" *ngIf="question.imageUrl !=''" [src]="question.imageUrl"/>
 
-        <youtube-cmp [source]="question.youtubeVideoId" [width]="videoWidth" [height]="videoHeight" *ngIf="question.youtubeVideoId" [delay]="delay"></youtube-cmp>
+        <youtube-cmp [source]="question.youtubeVideoId" [width]="videoWidth" [height]="videoHeight" [delay]="delay" [ngClass]="{hide: !question.youtubeVideoId}"></youtube-cmp>
       </div>
     </div>
   </div>
