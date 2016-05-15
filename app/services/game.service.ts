@@ -441,10 +441,10 @@ var data:Array<Question> = [
     displayAnswer: 'ら,ひ,な,が,は',
     type: 'text',
     position: 36,
-    imageUrl: 'app/assets/q4-6hiragana.jpg',
+    imageUrl: '',
     youtubeVideoId: '',
     videoUrl: '',
-    audioUrl: 'app/assets/q4-6food.mp3'
+    audioUrl: 'app/assets/q4-6hiragana.mp3'
   },
   {
     question: 'yo-u-ko-so',
@@ -453,7 +453,7 @@ var data:Array<Question> = [
     displayAnswer: 'う,こよ,る,そ',
     type: 'text',
     position: 37,
-    imageUrl: 'app/assets/q4-7welcome.jpg',
+    imageUrl: '',
     youtubeVideoId: '',
     videoUrl: '',
     audioUrl: 'app/assets/q4-7welcome.mp3'
@@ -465,7 +465,7 @@ var data:Array<Question> = [
     displayAnswer: 'こ,は,ん,ち,に',
     type: 'text',
     position: 38,
-    imageUrl: 'app/assets/q4-8hello.jpg',
+    imageUrl: '',
     youtubeVideoId: '',
     videoUrl: '',
     audioUrl: 'app/assets/q4-8hello.mp3'
@@ -477,7 +477,7 @@ var data:Array<Question> = [
     displayAnswer: 'よ,さ,な,ら,う',
     type: 'text',
     position: 39,
-    imageUrl: 'app/assets/q4-9goodbye.jpg',
+    imageUrl: '',
     youtubeVideoId: '',
     videoUrl: '',
     audioUrl: 'app/assets/q4-9goodbye.mp3'
@@ -489,7 +489,7 @@ var data:Array<Question> = [
     displayAnswer: 'す,せ,ま,ん,み',
     type: 'text',
     position: 40,
-    imageUrl: 'app/assets/q4-10excuseme.jpg',
+    imageUrl: '',
     youtubeVideoId: '',
     videoUrl: '',
     audioUrl: 'app/assets/q4-10excuseme.mp3'
