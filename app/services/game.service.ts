@@ -71,20 +71,49 @@ export class GameService {
 var data:Array<Question> = [
 
   {
-    question: "What's the best song in Lee's mind ",
-    answer: 'JPop',
-    type: 'text',
-    position : 2,
-    imageUrl : '/app/assets/Q 3-6 food.jpg',
-    youtubeVideoId : 'RHXS_ir2-10'
-  },
-  {
-    question: 'Sample',
-    answer: 'Sample',
+    question: "nu",
+    answer: 'ぬ',
+    displayAnswer:'',
     type: 'text',
     position : 1,
-    imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
-    youtubeVideoId : '3TecLO0It98'
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "to",
+    answer: 'と',
+    displayAnswer:'',
+    type: 'text',
+    position : 2,
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "u",
+    answer: 'う',
+    displayAnswer:'',
+    type: 'text',
+    position : 3,
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "ne",
+    answer: 'ね',
+    displayAnswer:'',
+    type: 'text',
+    position : 4,
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "su",
+    answer: 'す',
+    displayAnswer:'',
+    type: 'text',
+    position : 5,
+    imageUrl : '',
+    youtubeVideoId : ''
   },
   {
     question: '1-6',

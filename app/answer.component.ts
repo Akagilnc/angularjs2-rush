@@ -23,7 +23,6 @@ export class AnswerComponent implements OnChanges{
     constructor(private gameService: GameService) {
         this.keyboards = null;
         this.question = null;
-        this.answer = '';
     }
 
     ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
