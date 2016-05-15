@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from 'angular2/core';
 import {Question} from './interfaces';
 import {GameService, TimerService, SoundService} from './services';
 import {QuestionComponent} from './question.component';

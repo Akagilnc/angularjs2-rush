@@ -1,7 +1,7 @@
 declare var window: any;
 declare var document: any;
 declare var YT: any;
-import {Component, ElementRef, OnChanges, Input, AfterViewInit, NgZone} from '@angular/core';
+import {Component, ElementRef, OnChanges, Input, AfterViewInit, NgZone} from 'angular2/core';
 
 @Component({
   selector: 'youtube-cmp',

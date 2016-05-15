@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from 'angular2/core';
 import {Question} from '../interfaces';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';

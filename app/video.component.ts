@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnChanges, Input, AfterViewInit} from '@angular/core';
+import {Component, ElementRef, OnChanges, Input, AfterViewInit} from 'angular2/core';
 
 @Component({
   selector: 'video-cmp',

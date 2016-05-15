@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
+import {Component} from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
   selector: 'introduction',
   template: `
   <p>Welcome to our app</p>
-  <a class='btn btn-primary' [routerLink]='["/play"]'>Start game</a>
+  <a class='btn btn-primary' [routerLink]='["PlayComponent"]'>Start game</a>
   `,
   directives: [ROUTER_DIRECTIVES]
 })

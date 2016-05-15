@@ -1,5 +1,5 @@
-import {Component, Input, OnChanges, ViewChild} from '@angular/core';
-import {CORE_DIRECTIVES} from '@angular/common';
+import {Component, Input, OnChanges, ViewChild} from 'angular2/core';
+import {CORE_DIRECTIVES} from 'angular2/common';
 import {Question} from './interfaces';
 import {GameService, TimerService, SoundService} from './services';
 import {YoutubeComponent} from './youtube.component';

@@ -1,10 +1,10 @@
 /**
  * Created by deronlee on 5/14/16.
  */
-import {Component, Input, OnChanges, SimpleChange, EventEmitter, Output} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange, EventEmitter, Output} from 'angular2/core';
 import {Question} from './interfaces';
 import {GameService, SoundService} from './services';
-import {NgFor, NgClass} from '@angular/common';
+import {NgFor, NgClass} from 'angular2/common';
 //import {QuestionComponent} from './question.component';
 
 @Component({

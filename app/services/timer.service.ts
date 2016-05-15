@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class TimerService {
   }
 
   startTimer() {
-    console.log('Start time');
+    if (this.timer) clearInterval(this.timer);
     this.remaningTime = this.TOTAL_TIME;
     this.timer = setInterval(() => {
       this.tick();

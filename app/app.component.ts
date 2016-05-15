@@ -2,8 +2,8 @@
  * Created by deronlee on 5/14/16.
  */
 
-import {Component, OnInit} from '@angular/core';
-import {Routes, Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {Component, OnInit} from 'angular2/core';
+import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {PlayComponent} from './play.component';
 import {AnswerComponent} from './answer.component';
 import {Question} from './interfaces'
@@ -35,9 +35,9 @@ import {IntroductionComponent} from "./introduction.component";
 
 })
 
-@Routes([
-    {path: '/introduction', component: IntroductionComponent},
-    {path: '/play', component: PlayComponent}
+@RouteConfig([
+    {path: '/', name: 'IntroductionComponent', component: IntroductionComponent},
+    {path: '/play', name: 'PlayComponent', component: PlayComponent}
 ])
 export class AppComponent implements OnInit{
     private activeQuestion:Question;
@@ -48,7 +48,7 @@ export class AppComponent implements OnInit{
     }
 
     ngOnInit() {
-        this.router.navigate(['introduction']);
+
     }
 
 }
