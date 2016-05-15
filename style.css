@@ -69,7 +69,7 @@
 
   .keyboard .key:hover{
     background-color: white;
-    border-color: dodgerblue;
+    border-color: white;
     color: dodgerblue;
   }
 
