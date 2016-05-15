@@ -9,17 +9,12 @@ export class SoundService {
       delete this._audio;
     }
 
-    this._audio = new Audio(path);
 
-    setTimeout(() => {
-      try{
-        this._audio.play();
-      }
-      catch(e) {
+      this._audio = new Audio(path);
+      this._audio.play();
+      // setTimeout(() => {
 
-      }
-
-    }, delay);
+      // }, delay);
 
   }
 }
