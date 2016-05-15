@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class TimerService {
 
-  private TOTAL_TIME:number = 120;
+  private TOTAL_TIME:number = 60;
   private remaningTime: number = 0;
 
   private $onTimeEnd: any;

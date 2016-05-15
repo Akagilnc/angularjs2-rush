@@ -26,6 +26,7 @@ export class GameService {
   }
 
   submitAnswer(question: Question, answer: string):boolean {
+    this.totalCompletedQuestion++;
     if (!question || question.answer == null || !answer || question.answer.length == 0 || answer.length == 0 ) {
       return false;
     }
@@ -33,7 +34,6 @@ export class GameService {
     answer = answer.toLocaleLowerCase();
     var correctAnswer: string = question.answer.toLowerCase();
 
-    this.totalCompletedQuestion++;
     if (answer == correctAnswer) {
       this.totalSuccessQuestion++;
       return true;

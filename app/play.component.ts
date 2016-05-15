@@ -4,6 +4,9 @@ import {GameService, TimerService, SoundService} from './services';
 import {QuestionComponent} from './question.component';
 import {AnswerComponent} from './answer.component';
 import {ProgressBarComponent} from './progress-bar.component';
+import {ModalComponent} from './modal.component';
+import {AppSettings} from './app-settings';
+
 @Component({
   selector: 'play',
   template: `
@@ -16,6 +19,7 @@ import {ProgressBarComponent} from './progress-bar.component';
     <div class="row">
       <div class="col-md-12">
         <answer [question]="question" [answer]="answer" (onSubmitAnswer)="onSubmitAnswer($event)"></answer>
+
       </div>
     </div>
 
@@ -24,16 +28,39 @@ import {ProgressBarComponent} from './progress-bar.component';
         <progress-bar [completedPercent]="completedPercent"></progress-bar>
       </div>
     </div>
+
+    <modal  #resultModal
+            [title]="appTitle"
+            [submitButtonLabel]="modalSubmitButtonLabel"
+            [modalClass]="modalClass"
+            [hideCloseButton]="false"
+            [closeOnEscape]="false"
+            [closeOnOutsideClick]="false"
+            (onSubmit)="closeModalAndNextLevel()">
+
+            <modal-content> {{resultText}} </modal-content>
+
+     </modal>
+
+
+
   `,
-  directives: [QuestionComponent, AnswerComponent, ProgressBarComponent],
+  directives: [QuestionComponent, AnswerComponent, ProgressBarComponent, ModalComponent],
   providers: [GameService, TimerService, SoundService]
 })
 export class PlayComponent implements OnInit {
   @ViewChild(AnswerComponent) answerComponent:AnswerComponent;
+  @ViewChild('characterList') characterList: ModalComponent;
+  @ViewChild('resultModal') resultModal: ModalComponent;
   private question: Question;
   private answer: string;
   private completedPercent: number;
+  private resultText: string = '';
 
+  private appTitle = AppSettings.TITLE;
+  private modalSubmitButtonLabel = 'Next question';
+
+  private modalClass = 'modal-sm';
   constructor(private gameService: GameService,
               private timerService: TimerService) {
 
@@ -56,13 +83,22 @@ export class PlayComponent implements OnInit {
     console.log(this.question, this.answer, answer);
     var result = this.gameService.submitAnswer(this.question, answer);
     if (result) {
-      alert('Your answer is correct. Click to go to next question!');
+      this.resultText = 'Your answer is correct.';
     } else {
-      alert('Your answer is NOT correct. Click to go to next question!')
+      this.resultText = 'Your answer is NOT correct.';
     }
     this.completedPercent = this.gameService.getCompletedPercent();
-    this.timerService.startTimer();
+    this.resultModal.open();
+  }
+
+  closeModalAndNextLevel() {
+    this.resultModal.close();
     this.gameService.nextQuestion();
+    this.timerService.startTimer();
+  }
+
+  showCharacterList() {
+    this.characterList.open();
   }
 
 }
