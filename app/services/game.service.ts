@@ -9,6 +9,7 @@ export class GameService {
   private $questionChange: Observable<Question>;
   private $questionChangeNotifier: any;
   private currentQuestionIndex: number = 0;
+  private totalSuccessQuestion: number = 0;
 
   constructor() {
     this.$questionChange = Observable.create((observer:any) => {
@@ -16,6 +17,7 @@ export class GameService {
       this.publishChangeQuestion();
     }).share();
 
+    this.totalSuccessQuestion = 0;
   }
 
   getQuestions():Array<Question> {
@@ -31,6 +33,7 @@ export class GameService {
     var correctAnswer: string = question.answer.toLowerCase();
 
     if (answer == correctAnswer) {
+      this.totalSuccessQuestion++;
       return true;
     }
 
@@ -46,7 +49,7 @@ export class GameService {
   }
 
   nextQuestion() {
-    if (this.currentQuestionIndex < this.questionData.length - 1){
+    if (this.currentQuestionIndex < this.questionData.length - 1) {
       this.currentQuestionIndex++;
       this.$questionChangeNotifier.next(this.getCurrentQuestion());
     }

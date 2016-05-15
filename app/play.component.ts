@@ -2,16 +2,23 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Question} from './interfaces';
 import {GameService, TimerService, SoundService} from './services';
 import {QuestionComponent} from './question.component';
-import {TimerComponent} from './timer.component';
 import {AnswerComponent} from './answer.component';
 @Component({
   selector: 'play',
   template: `
-    <timer></timer>
-    <question [question]="question"></question>
-    <answer [question]="question"></answer>
+    <div class="row">
+      <div class="col-md-12">
+        <question [question]="question"></question>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <answer [question]="question" [answer]="answer" (onSubmitAnswer)="onSubmitAnswer()"></answer>
+      </div>
+    </div>
   `,
-  directives: [QuestionComponent, TimerComponent, AnswerComponent],
+  directives: [QuestionComponent, AnswerComponent],
   providers: [GameService, TimerService, SoundService]
 })
 export class PlayComponent implements OnInit {
@@ -29,7 +36,7 @@ export class PlayComponent implements OnInit {
     this.question = this.gameService.getCurrentQuestion();
 
     this.timerService.onTimeEnd().subscribe(() => {
-      this.gameService.submitAnswer(this.question, this.answer);
+      this.onSubmitAnswer();
     });
 
     this.gameService.onQuestionChanged().subscribe((question:Question) => {
@@ -37,7 +44,7 @@ export class PlayComponent implements OnInit {
     })
   }
 
-  private onSubmitAnswer() {
+  onSubmitAnswer() {
     var result = this.gameService.submitAnswer(this.question, this.answer);
     if (result) {
       this.score += 10;

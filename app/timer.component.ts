@@ -3,7 +3,10 @@ import {TimerService} from './services';
 
 @Component({
   selector: 'timer',
-  template: `<i class="fa fa-clock-o"></i>&nbsp;{{remaningTime}}`
+  template: `
+    <div class="timer">
+      <i class="fa fa-clock-o"></i>&nbsp;{{remaningTime}}
+    </div>`
 })
 export class TimerComponent {
   private remaningTime: number;

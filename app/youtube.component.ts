@@ -25,6 +25,9 @@ export class YoutubeComponent implements AfterViewInit, OnChanges {
     window.onYouTubePlayerAPIReady = () => {
       if (self.player) return;
       self.player = new YT.Player('ytplayer', {
+        playerVars: {
+          rel: 0
+        },
         events: {
           onReady: () => {
             self.isPlayerReady = true;

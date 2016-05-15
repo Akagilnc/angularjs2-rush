@@ -1,7 +1,7 @@
 /**
  * Created by deronlee on 5/14/16.
  */
-import {Component, Input, OnChanges, SimpleChange} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange, EventEmitter} from '@angular/core';
 import {Question} from './interfaces';
 import {GameService, SoundService} from './services';
 import {NgFor, NgClass} from '@angular/common';
@@ -12,54 +12,12 @@ import {NgFor, NgClass} from '@angular/common';
     directives: [NgFor, NgClass],
     //providers: [QuestionComponent, SoundService],
     templateUrl: './app/answer.component.html',
-    styles: [`
-  .answer-title {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-
-  .answer-placeholder {
-    width: 120px;
-    display: inline-block;
-    border-bottom: 2px solid black;
-    height: 24px;
-  }
-
-  .answer-row {
-    margin-bottom: 1em;
-  }
-
-  .keyboard {
-    text-align: center;
-  }
-
-  .keyboard .key{
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-left: 5px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    display: inline-block;
-    width: 39px;
-  }
-
-  .keyboard .key:hover{
-    background-color: gray;
-  }
-
-  .keyboard-line {
-    margin-bottom: 10px;
-  }
-
-  .keyboard-row {
-    margin-bottom: 2em;
-  }
-  `]
+    styles: []
 })
 export class AnswerComponent implements OnChanges{
     @Input('question') question: Question;
-    private answer: string = '';
+    @Input('answer') answer: string;
+
     private keyboards: Array<Array<string>>;
 
     constructor(private gameService: GameService) {

@@ -16,11 +16,21 @@ import {IntroductionComponent} from "./introduction.component";
     directives:[PlayComponent, AnswerComponent, ROUTER_DIRECTIVES],
     providers:[GameService],
     template:`
-    <nav>
-      <a [routerLink]="['/introduction']">Introduction</a>
-    </nav>
-    <router-outlet></router-outlet>
-    <play></play>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="logo">Listen&Learn</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+
     `
 
 })
@@ -29,12 +39,12 @@ import {IntroductionComponent} from "./introduction.component";
     {path: '/introduction', component: IntroductionComponent},
     {path: '/play', component: PlayComponent}
 ])
-
 export class AppComponent implements OnInit{
     private activeQuestion:Question;
     private question:Question;
 
     constructor(private gameService: GameService, private router: Router) {
+
     }
 
     ngOnInit() {
