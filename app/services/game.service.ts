@@ -360,5 +360,205 @@ var data:Array<Question> = [
     videoUrl: '',
     audioUrl: 'app/assets/q3-10fun.mp3'
   },
+  {
+    question: "hi",
+    answer: 'ひ',
+    displayAnswer: '',
+    type: 'text',
+    position: 31,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "ra",
+    answer: 'ら',
+    displayAnswer: '',
+    type: 'text',
+    position: 32,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "yo",
+    answer: 'よ',
+    displayAnswer: '',
+    type: 'text',
+    position: 33,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "so",
+    answer: 'そ',
+    displayAnswer: '',
+    type: 'text',
+    position: 34,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "ma",
+    answer: 'ま',
+    displayAnswer: '',
+    type: 'text',
+    position: 35,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: 'hi-ra-ga-na',
+    answer: 'ひらがな',
+    displayAnswer: '',
+    type: 'text',
+    position: 36,
+    imageUrl: 'app/assets/q4-6hiragana.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q4-6food.mp3'
+  },
+  {
+    question: 'yo-u-ko-so',
+    answer: 'ようこそ',
+    displayAnswer: '',
+    type: 'text',
+    position: 37,
+    imageUrl: 'app/assets/q4-7welcome.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q4-7welcome.mp3'
+  },
+  {
+    question: 'ko-n-ni-chi-wa',
+    answer: 'こんにちは',
+    displayAnswer: '',
+    type: 'text',
+    position: 38,
+    imageUrl: 'app/assets/q4-8hello.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q4-8hello.mp3'
+  },
+  {
+    question: 'sa-yo-u-na-ra',
+    answer: 'さようなら',
+    displayAnswer: '',
+    type: 'text',
+    position: 39,
+    imageUrl: 'app/assets/q4-9goodbye.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q4-9goodbye.mp3'
+  },
+  {
+    question: 'su-mi-ma-se-n',
+    answer: 'すみません',
+    displayAnswer: '',
+    type: 'text',
+    position: 40,
+    imageUrl: 'app/assets/q4-10excuseme.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q4-10excuseme.mp3'
+  },
+  {
+    question: "go",
+    answer: 'ご',
+    displayAnswer: '',
+    type: 'text',
+    position: 41,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "za",
+    answer: 'ざ',
+    displayAnswer: '',
+    type: 'text',
+    position: 42,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "do",
+    answer: 'ど',
+    displayAnswer: '',
+    type: 'text',
+    position: 43,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "te",
+    answer: 'て',
+    displayAnswer: '',
+    type: 'text',
+    position: 44,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "ba",
+    answer: 'ば',
+    displayAnswer: '',
+    type: 'text',
+    position: 45,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: 'a-ri-ga-to-go-za-i-ma-su',
+    answer: 'ありがとうございます',
+    displayAnswer: '',
+    type: 'text',
+    position: 46,
+    imageUrl: '',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q5-6thankyouverymuch.mp3'
+  },
+  {
+    question: 'do-u-i-ta-shi-ma-shi-te',
+    answer: 'どういたしまして',
+    displayAnswer: '',
+    type: 'text',
+    position: 47,
+    imageUrl: '',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q5-7youarewelcome.mp3'
+  },
+  {
+    question: 'o-ha-yo-u-go-za-i-ma-su',
+    answer: 'おはようございます',
+    displayAnswer: '',
+    type: 'text',
+    position: 48,
+    imageUrl: '',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q5-8goodmorning.mp3'
+  },
+  {
+    question: 'ko-n-ba-n-wa',
+    answer: 'こんばんは',
+    displayAnswer: '',
+    type: 'text',
+    position: 49,
+    imageUrl: '',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q5-9goodevening.mp3'
+  },
+  {
+    question: 'o-ya-su-mi-na-sa-i',
+    answer: 'おやすみなさい',
+    displayAnswer: '',
+    type: 'text',
+    position: 50,
+    imageUrl: '',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q5-10goodnight.mp3'
+  }
 
 ];
