@@ -1,6 +1,7 @@
 export interface Question {
   position?: number;
   question: string;
+  questionNode?: string;
   answer: string;
   displayAnswer?: string;
   type: string;

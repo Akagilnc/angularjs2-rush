@@ -82,7 +82,7 @@ var data:Array<Question> = [
   {
     question: "nu",
     answer: 'ぬ',
-    displayAnswer: '',
+    displayAnswer: 'な, に, ぬ, ね, の',
     type: 'text',
     position : 1,
     imageUrl : '',
@@ -91,7 +91,7 @@ var data:Array<Question> = [
   {
     question: "to",
     answer: 'と',
-    displayAnswer: '',
+    displayAnswer: 'た,ち,つ,て,と',
     type: 'text',
     position : 2,
     imageUrl : '',
@@ -100,7 +100,7 @@ var data:Array<Question> = [
   {
     question: "u",
     answer: 'う',
-    displayAnswer: '',
+    displayAnswer: 'あ, い, う, え, お',
     type: 'text',
     position : 3,
     imageUrl : '',
@@ -109,7 +109,7 @@ var data:Array<Question> = [
   {
     question: "ne",
     answer: 'ね',
-    displayAnswer: '',
+    displayAnswer: 'な,に,ぬ,ね,の',
     type: 'text',
     position : 4,
     imageUrl : '',
@@ -118,7 +118,7 @@ var data:Array<Question> = [
   {
     question: "su",
     answer: 'す',
-    displayAnswer: '',
+    displayAnswer: 'さ, し, す, せ, そ',
     type: 'text',
     position : 5,
     imageUrl : '',
@@ -126,8 +126,9 @@ var data:Array<Question> = [
   },
   {
     question: 'i-nu',
+    questionNode: 'dog',
     answer: 'いぬ',
-    displayAnswer: '',
+    displayAnswer: 'い, に, ぬ, ね, の',
     type: 'text',
     position: 6,
     imageUrl: '',
@@ -135,8 +136,9 @@ var data:Array<Question> = [
   },
   {
     question: 'to-ri',
+    questionNode: 'bird',
     answer: 'とり',
-    displayAnswer: '',
+    displayAnswer: 'た,ち,り,て,と',
     type: 'text',
     position: 7,
     imageUrl: '',
@@ -144,8 +146,9 @@ var data:Array<Question> = [
   },
   {
     question: 'u-ma',
+    questionNode: 'horse',
     answer: 'うま',
-    displayAnswer: '',
+    displayAnswer: 'あ, ま, う, え, お',
     type: 'text',
     position: 8,
     imageUrl: '',
@@ -153,8 +156,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ne-ko',
+    questionNode: 'cat',
     answer: 'ねこ',
-    displayAnswer: '',
+    displayAnswer: 'な,に,こ,ね,の',
     type: 'text',
     position: 9,
     imageUrl: '',
@@ -162,8 +166,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ri-su',
+    questionNode: 'squirrel',
     answer: 'りす',
-    displayAnswer: '',
+    displayAnswer: 'さ, り, す, せ, そ',
     type: 'text',
     position: 10,
     imageUrl: '',
@@ -172,7 +177,7 @@ var data:Array<Question> = [
   {
     question: "na",
     answer: 'な',
-    displayAnswer: '',
+    displayAnswer: 'な,に,ぬ,ね,の',
     type: 'text',
     position : 11,
     imageUrl : '',
@@ -181,7 +186,7 @@ var data:Array<Question> = [
   {
     question: "mi",
     answer: 'み',
-    displayAnswer: '',
+    displayAnswer: 'ま,み,む,め,も',
     type: 'text',
     position : 12,
     imageUrl : '',
@@ -190,7 +195,7 @@ var data:Array<Question> = [
   {
     question: "e",
     answer: 'え',
-    displayAnswer: '',
+    displayAnswer: 'あ, い, う, え, お',
     type: 'text',
     position : 13,
     imageUrl : '',
@@ -199,7 +204,7 @@ var data:Array<Question> = [
   {
     question: "tsu",
     answer: 'つ',
-    displayAnswer: '',
+    displayAnswer: 'た,ち,つ,て,と',
     type: 'text',
     position : 14,
     imageUrl : '',
@@ -208,7 +213,7 @@ var data:Array<Question> = [
   {
     question: "gi",
     answer: 'ぎ',
-    displayAnswer: '',
+    displayAnswer: 'が, ぎ, ぐ, げ, ご',
     type: 'text',
     position : 15,
     imageUrl : '',
@@ -216,8 +221,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ka-ka-na',
+    questionNode: 'fish',
     answer: 'さかな',
-    displayAnswer: '',
+    displayAnswer: 'な,に,さ,か,の',
     type: 'text',
     position: 16,
     imageUrl: '',
@@ -225,8 +231,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ne-zu-mi',
+    questionNode: 'mouse',
     answer: 'ねずみ',
-    displayAnswer: '',
+    displayAnswer: 'ま,み,む,ね,ず',
     type: 'text',
     position: 17,
     imageUrl: '',
@@ -234,8 +241,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ka-e-ru',
+    questionNode: 'frog',
     answer: 'かえる',
-    displayAnswer: '',
+    displayAnswer: 'あ, か, う, え, る',
     type: 'text',
     position: 18,
     imageUrl: '',
@@ -243,8 +251,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ke-tsu-ne',
+    questionNode: 'fox',
     answer: 'きつね',
-    displayAnswer: '',
+    displayAnswer: 'た,ね,つ,て,き',
     type: 'text',
     position: 19,
     imageUrl: '',
@@ -252,8 +261,9 @@ var data:Array<Question> = [
   },
   {
     question: 'u-sa-gi',
+    questionNode: 'rabbit',
     answer: 'うさぎ',
-    displayAnswer: '',
+    displayAnswer: 'が, ぎ, ぐ,う,さ',
     type: 'text',
     position: 20,
     imageUrl: '',
@@ -262,7 +272,7 @@ var data:Array<Question> = [
   {
     question: "be",
     answer: 'べ',
-    displayAnswer: '',
+    displayAnswer: 'ば,び,ぶ,べ,ぼ',
     type: 'text',
     position: 21,
     imageUrl: '',
@@ -271,7 +281,7 @@ var data:Array<Question> = [
   {
     question: "ya",
     answer: 'や',
-    displayAnswer: '',
+    displayAnswer: 'や,ゆ,よ,え,お',
     type: 'text',
     position: 22,
     imageUrl: '',
@@ -280,7 +290,7 @@ var data:Array<Question> = [
   {
     question: "shi",
     answer: 'し',
-    displayAnswer: '',
+    displayAnswer: 'さ,し,す,せ,そ',
     type: 'text',
     position: 23,
     imageUrl: '',
@@ -289,7 +299,7 @@ var data:Array<Question> = [
   {
     question: "wa",
     answer: 'わ',
-    displayAnswer: '',
+    displayAnswer: 'わ,を,ぷ,ぺ,ぽ',
     type: 'text',
     position: 24,
     imageUrl: '',
@@ -298,7 +308,7 @@ var data:Array<Question> = [
   {
     question: "ta",
     answer: 'た',
-    displayAnswer: '',
+    displayAnswer: 'た,ち,つ,て,と',
     type: 'text',
     position: 25,
     imageUrl: '',
@@ -306,8 +316,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ta-be-mo-no',
+    questionNode: 'food',
     answer: 'たべもの',
-    displayAnswer: '',
+    displayAnswer: 'の,た,も,べ,ぼ',
     type: 'text',
     position: 26,
     imageUrl: 'app/assets/q3-6food.jpg',
@@ -317,8 +328,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ya-ki-to-ri',
+    questionNode: 'yakitori',
     answer: 'やきとり',
-    displayAnswer: '',
+    displayAnswer: 'や,き,り,と,お',
     type: 'text',
     position: 27,
     imageUrl: 'app/assets/q3-7yakitori.jpg',
@@ -328,8 +340,9 @@ var data:Array<Question> = [
   },
   {
     question: 'o-i-shi-i',
+    questionNode: 'tasty',
     answer: 'おいしい',
-    displayAnswer: '',
+    displayAnswer: 'し,す,い,お,せ',
     type: 'text',
     position: 28,
     imageUrl: 'app/assets/q3-8tasty.jpg',
@@ -339,8 +352,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ka-wa-i-i',
+    questionNode: 'cute',
     answer: 'かわいい',
-    displayAnswer: '',
+    displayAnswer: 'わ,を,い,ぽ,か',
     type: 'text',
     position: 29,
     imageUrl: 'app/assets/q3-9cute.jpg',
@@ -350,8 +364,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ta-no-shi-i',
+    questionNode: 'fun',
     answer: 'たのしい',
-    displayAnswer: '',
+    displayAnswer: 'い,た,の,し,と',
     type: 'text',
     position: 30,
     imageUrl: 'app/assets/q3-10fun.jpg',
@@ -362,7 +377,7 @@ var data:Array<Question> = [
   {
     question: "hi",
     answer: 'ひ',
-    displayAnswer: '',
+    displayAnswer: 'は,ひ,ふ,へ,ほ',
     type: 'text',
     position: 31,
     imageUrl: '',
@@ -371,7 +386,7 @@ var data:Array<Question> = [
   {
     question: "ra",
     answer: 'ら',
-    displayAnswer: '',
+    displayAnswer: 'ら,り,る,れ,ろ',
     type: 'text',
     position: 32,
     imageUrl: '',
@@ -380,7 +395,7 @@ var data:Array<Question> = [
   {
     question: "yo",
     answer: 'よ',
-    displayAnswer: '',
+    displayAnswer: 'や,ゆ,よ,あ,い',
     type: 'text',
     position: 33,
     imageUrl: '',
@@ -389,7 +404,7 @@ var data:Array<Question> = [
   {
     question: "so",
     answer: 'そ',
-    displayAnswer: '',
+    displayAnswer: 'さ,し,す,せ,そ',
     type: 'text',
     position: 34,
     imageUrl: '',
@@ -398,7 +413,7 @@ var data:Array<Question> = [
   {
     question: "ma",
     answer: 'ま',
-    displayAnswer: '',
+    displayAnswer: 'ま,み,む,め,も',
     type: 'text',
     position: 35,
     imageUrl: '',
@@ -406,8 +421,9 @@ var data:Array<Question> = [
   },
   {
     question: 'hi-ra-ga-na',
+    questionNode: 'hiragana',
     answer: 'ひらがな',
-    displayAnswer: '',
+    displayAnswer: 'ら,ひ,な,が,は',
     type: 'text',
     position: 36,
     imageUrl: 'app/assets/q4-6hiragana.jpg',
@@ -417,8 +433,9 @@ var data:Array<Question> = [
   },
   {
     question: 'yo-u-ko-so',
+    questionNode: 'welcome',
     answer: 'ようこそ',
-    displayAnswer: '',
+    displayAnswer: 'う,こよ,る,そ',
     type: 'text',
     position: 37,
     imageUrl: 'app/assets/q4-7welcome.jpg',
@@ -428,8 +445,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ko-n-ni-chi-wa',
+    questionNode: 'hello',
     answer: 'こんにちは',
-    displayAnswer: '',
+    displayAnswer: 'こ,は,ん,ち,に',
     type: 'text',
     position: 38,
     imageUrl: 'app/assets/q4-8hello.jpg',
@@ -439,8 +457,9 @@ var data:Array<Question> = [
   },
   {
     question: 'sa-yo-u-na-ra',
+    questionNode: 'good bye',
     answer: 'さようなら',
-    displayAnswer: '',
+    displayAnswer: 'よ,さ,な,ら,う',
     type: 'text',
     position: 39,
     imageUrl: 'app/assets/q4-9goodbye.jpg',
@@ -450,8 +469,9 @@ var data:Array<Question> = [
   },
   {
     question: 'su-mi-ma-se-n',
+    questionNode: 'excuse me',
     answer: 'すみません',
-    displayAnswer: '',
+    displayAnswer: 'す,せ,ま,ん,み',
     type: 'text',
     position: 40,
     imageUrl: 'app/assets/q4-10excuseme.jpg',
@@ -462,7 +482,7 @@ var data:Array<Question> = [
   {
     question: "go",
     answer: 'ご',
-    displayAnswer: '',
+    displayAnswer: 'が, ぎ, ぐ, げ, ご',
     type: 'text',
     position: 41,
     imageUrl: '',
@@ -471,7 +491,7 @@ var data:Array<Question> = [
   {
     question: "za",
     answer: 'ざ',
-    displayAnswer: '',
+    displayAnswer: 'ざ, じ, ず, ぜ, ぞ',
     type: 'text',
     position: 42,
     imageUrl: '',
@@ -480,7 +500,7 @@ var data:Array<Question> = [
   {
     question: "do",
     answer: 'ど',
-    displayAnswer: '',
+    displayAnswer: 'だ,で,た,ち,ど',
     type: 'text',
     position: 43,
     imageUrl: '',
@@ -489,7 +509,7 @@ var data:Array<Question> = [
   {
     question: "te",
     answer: 'て',
-    displayAnswer: '',
+    displayAnswer: 'た,ち,つ,て,と',
     type: 'text',
     position: 44,
     imageUrl: '',
@@ -498,7 +518,7 @@ var data:Array<Question> = [
   {
     question: "ba",
     answer: 'ば',
-    displayAnswer: '',
+    displayAnswer: 'ば,び,ぶ,べ,ぼ',
     type: 'text',
     position: 45,
     imageUrl: '',
@@ -506,8 +526,9 @@ var data:Array<Question> = [
   },
   {
     question: 'a-ri-ga-to-go-za-i-ma-su',
+    questionNode: 'thank you very much',
     answer: 'ありがとうございます',
-    displayAnswer: '',
+    displayAnswer: 'あ,と,う,ご,い,ま,ざ,が,す,り',
     type: 'text',
     position: 46,
     imageUrl: '',
@@ -517,8 +538,9 @@ var data:Array<Question> = [
   },
   {
     question: 'do-u-i-ta-shi-ma-shi-te',
+    questionNode: 'you are welcome',
     answer: 'どういたしまして',
-    displayAnswer: '',
+    displayAnswer: 'ど,い,し,ざ,じ,た,う,ぜ,ま,て',
     type: 'text',
     position: 47,
     imageUrl: '',
@@ -528,8 +550,9 @@ var data:Array<Question> = [
   },
   {
     question: 'o-ha-yo-u-go-za-i-ma-su',
+    questionNode: 'good morning',
     answer: 'おはようございます',
-    displayAnswer: '',
+    displayAnswer: 'お,ご,す,は,た,よ,う,ま,ざ,い',
     type: 'text',
     position: 48,
     imageUrl: '',
@@ -539,8 +562,9 @@ var data:Array<Question> = [
   },
   {
     question: 'ko-n-ba-n-wa',
+    questionNode: 'good evening',
     answer: 'こんばんは',
-    displayAnswer: '',
+    displayAnswer: 'こ,ば,つ,は,た,で,ん,ち,て,と',
     type: 'text',
     position: 49,
     imageUrl: '',
@@ -550,8 +574,9 @@ var data:Array<Question> = [
   },
   {
     question: 'o-ya-su-mi-na-sa-i',
+    questionNode: 'good night',
     answer: 'おやすみなさい',
-    displayAnswer: '',
+    displayAnswer: 'お,ば,さ,や,す,み,べ,ぼ,な,い',
     type: 'text',
     position: 50,
     imageUrl: '',
