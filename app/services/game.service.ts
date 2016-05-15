@@ -450,7 +450,7 @@ var data:Array<Question> = [
     question: 'yo-u-ko-so',
     questionNode: 'welcome',
     answer: 'ようこそ',
-    displayAnswer: 'う,こよ,る,そ',
+    displayAnswer: 'う,こ,よ,る,そ',
     type: 'text',
     position: 37,
     imageUrl: '',
