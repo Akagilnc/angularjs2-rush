@@ -15,7 +15,7 @@
 
 
             </div>
-            <div class="col-md-12 keyboard-line">
+            <div class="col-md-12 keyboard-line" *ngIf="keyboards.length == 2">
                 <span *ngFor="let key of keyboards[1]" class="key" (click)="selectKey(key)">{{key}}</span>
             </div>
 

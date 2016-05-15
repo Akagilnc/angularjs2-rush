@@ -12,18 +12,27 @@ import {TimerComponent} from './timer.component';
     <div class="row question-header">
       <div class="col-md-5">
         <span class="question-name">Question {{question.position}}</span>
-        <a *ngIf="question.audioUrl" class="btn btn-default btn-sm" (click)='play()'><i class="fa fa-play"></i></a>
+        &nbsp;
+        <a (click)="previousQuestion()" class="btn btn-default"><i class="fa fa-caret-left"></i></a>
+        <a (click)="nextQuestion()" class="btn btn-default"><i class="fa fa-caret-right"></i></a>
       </div>
       <div class="col-md-7">
+
         <div class="navigation-buttons pull-right">
-          <timer class="pull-right"></timer>
+
+          <timer></timer>
         </div>
+
       </div>
+
     </div>
 
     <div class="row question-content">
       <div class="col-md-12">
+        <a *ngIf="question.audioUrl" class="btn btn-default btn-sm" (click)='play()'><i class="fa fa-play"></i></a>
         <p>{{ question.question }}</p>
+
+        <p *ngIf="questionNode">{{questionNode}}</p>
 
         <img class="img-responsive" *ngIf="question.imageUrl !=''" [src]="question.imageUrl"/>
 
@@ -52,9 +61,9 @@ export class QuestionComponent implements OnChanges {
   }
 
   play() {
-    // if (this.question.audioUrl != '') {
-    //   this.soundService.play(this.question.audioUrl, this.delay);
-    // }
+    if (this.question.audioUrl != '') {
+      this.soundService.play(this.question.audioUrl, this.delay);
+    }
 
     if (this.videoPlayer && this.question.youtubeVideoId) {
       this.videoPlayer.playVideo();
