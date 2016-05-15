@@ -49,6 +49,9 @@ export class GameService {
       this.totalSuccessQuestion++;
       this.score += 10;
       return true;
+    } else if (answer == correctAnswer)
+    {
+      return true;
     }
 
     return false;

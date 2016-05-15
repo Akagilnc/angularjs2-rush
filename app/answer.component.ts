@@ -72,7 +72,7 @@ export class AnswerComponent implements OnChanges {
         while (count) {
             randomnumber = Math.random() * count-- | 0;
             temp = array[count];
-            array[count] = array[randomnumber];
+            array[count] = array[randomnumber].trim();
             array[randomnumber] = temp
         }
     }
@@ -86,7 +86,7 @@ export class AnswerComponent implements OnChanges {
             return;
         }
 
-        this.answerHoles[this.currentAnswerIndex] = character;
+        this.answerHoles[this.currentAnswerIndex] = character.trim();
         this.currentAnswerIndex++;
 
         this.answer = this.answerHoles.join('').trim();
@@ -94,12 +94,12 @@ export class AnswerComponent implements OnChanges {
 
         if (this.question.answer.length > 0 && answer.length >= this.question.answer.length)
         {
-            this.submitAnswer();
+            this.submitAnswer(answer);
         }
     }
 
-    submitAnswer() {
-        this.onSubmitAnswerEvent.emit(this.answer);
+    submitAnswer(answer: string) {
+        this.onSubmitAnswerEvent.emit(answer);
     }
 
 }
