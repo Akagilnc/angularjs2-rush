@@ -72,7 +72,7 @@ var data:Array<Question> = [
     answer: 'JPop',
     type: 'text',
     position : 2,
-    imageUrl : 'http://img-9gag-fun.9cache.com/photo/a3BONAQ_460s.jpg',
+    imageUrl : '/app/assets/Q 3-6 food.jpg',
     youtubeVideoId : 'RHXS_ir2-10'
   },
   {
@@ -123,4 +123,15 @@ var data:Array<Question> = [
     imageUrl: '',
     youtubeVideoId: 'eqOvWOr9ayw'
   },
-  ];
+  {
+    question: '3-6',
+    answer: '',
+    type: 'text',
+    position: 6,
+    imageUrl: './assets/Q 3-6 food.jpg',
+    youtubeVideoId: 'eqOvWOr9ayw',
+    videoUrl: '',
+    audioUrl: './assets/3-6 food.mp3'
+  },
+
+];
