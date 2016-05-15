@@ -61,9 +61,10 @@
   }
 
   .keyboard .key{
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     border-color: white;
+    font-size: 1em;
     margin-left: 5px;
     padding: 10px;
     text-align: center;
@@ -71,12 +72,16 @@
     display: inline-block;
     width: 39px;
     color: white;
+    font-weight: bold;
   }
 
   .keyboard .key:hover{
+    border: 2px;
+    font-size: 1em;
     background-color: white;
     border-color: white;
     color: dodgerblue;
+    font-weight: bold;
   }
 
   .keyboard-line {
@@ -123,6 +128,7 @@
   font-size: medium;
   color: white;
   text-decoration: none;
+  font-weight: bold;
 }
 .chart-link:hover {
   color: white;
