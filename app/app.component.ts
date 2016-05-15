@@ -24,6 +24,10 @@ export class AppComponent {
     private question:Question;
 
     constructor(private gameService: GameService) {
+        this.gameService.onQuestionChanged().subscribe(question => {
+            this.activeQuestion = question
+        })
+        this.question = this.gameService.getCurrentQuestion();
     }
 
 }
