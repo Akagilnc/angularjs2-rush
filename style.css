@@ -106,3 +106,15 @@
     overflow-x: hidden;
     overflow-y: auto !important;
   }
+
+.chart-link {
+  font-size: medium;
+  color: white;
+  text-decoration: none;
+}
+.chart-link:hover {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
