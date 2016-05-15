@@ -79,7 +79,6 @@ export class GameService {
 }
 
 var data:Array<Question> = [
-
   {
     question: "nu",
     answer: 'ぬ',
