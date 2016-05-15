@@ -67,11 +67,11 @@ export class PlayComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.timerService.startTimer();
+    //this.timerService.startTimer();
     this.question = this.gameService.getCurrentQuestion();
 
     this.timerService.onTimeEnd().subscribe(() => {
-      this.answerComponent.submitAnswer();
+      //this.answerComponent.submitAnswer();
     });
 
     this.gameService.onQuestionChanged().subscribe((question:Question) => {
@@ -94,7 +94,7 @@ export class PlayComponent implements OnInit {
   closeModalAndNextLevel() {
     this.resultModal.close();
     this.gameService.nextQuestion();
-    this.timerService.startTimer();
+    //this.timerService.startTimer();
   }
 
   showCharacterList() {

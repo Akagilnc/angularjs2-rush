@@ -9,4 +9,5 @@ export interface Question {
   imageUrl?: string;
   audioUrl?: string;
   youtubeVideoId?: string;
+  isAnswered?: boolean;
 }

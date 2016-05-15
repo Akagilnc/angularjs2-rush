@@ -5,12 +5,13 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class GameService {
-  private questionData = data;
+  private questionData: Array<Question>;
   private $questionChange: Observable<Question>;
   private $questionChangeNotifier: any;
   private currentQuestionIndex: number = 0;
   private totalSuccessQuestion: number = 0;
   private totalCompletedQuestion: number = 0;
+  private score: number = 0;
 
   constructor() {
     this.$questionChange = Observable.create((observer:any) => {
@@ -19,7 +20,16 @@ export class GameService {
     }).share();
 
     this.totalSuccessQuestion = 0;
+
+    data.forEach((question, index) => {
+      question.position = index + 1;
+      question.isAnswered = false;
+    });
+
+    this.questionData = data;
   }
+
+
 
   getQuestions():Array<Question> {
     return this.questionData;
@@ -34,8 +44,10 @@ export class GameService {
     answer = answer.toLocaleLowerCase();
     var correctAnswer: string = question.answer.toLowerCase();
 
-    if (answer == correctAnswer) {
+    if (answer == correctAnswer && !question.isAnswered) {
+      question.isAnswered = true;
       this.totalSuccessQuestion++;
+      this.score += 10;
       return true;
     }
 
@@ -74,7 +86,7 @@ export class GameService {
   }
 
   getScore() {
-    return this.totalSuccessQuestion * 10;
+    return this.score;
   }
 }
 

@@ -26,8 +26,11 @@ export class AnswerComponent implements OnChanges {
     private appTitle = AppSettings.TITLE;
     private modalSubmitButtonLabel = 'Next question';
     private characterListmodalSubmitLabel = 'OK';
-    private modalClass = 'modal-sm';
+    private modalClass = 'modal-lg';
 
+    private answerHoles: Array<any>;
+    private answerArray: Array<any>;
+    private currentAnswerIndex = 0;
     constructor(private gameService: GameService) {
         this.keyboards = null;
         this.question = null;
@@ -40,7 +43,13 @@ export class AnswerComponent implements OnChanges {
     ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
         if (changes['question'] != null) {
             this.answer = '';
+            this.answerHoles = [];
+            this.currentAnswerIndex = 0;
             this._rearrangeKeyboard();
+            for (var i = 0; i < this.question.answer.length; i++) {
+                this.answerHoles.push('_');
+            }
+            this.answerHoles.push('_');
         }
     }
 
@@ -49,27 +58,11 @@ export class AnswerComponent implements OnChanges {
     }
 
     _rearrangeKeyboard(): void {
-        var array:Array<string> = [];
-        for (var i = 0; i < this.question.answer.length; i++) {
-            var char = this.question.answer[i].toUpperCase();
-            array.push(char);
-        }
-        for (var i = 65; i <= 90; i++) {
-            var char = String.fromCharCode(i);
-            if (array.indexOf(char) == -1) {
-                array.push(char);
-            }
-        }
-        array = array.splice(0, 12);
-        this._shuffleArray(array);
-        var array1 = array.splice(0, 6);
-        array1.push('<')
-        var array2 = array;
-        this.keyboards = [
-            array1,
-            array2
-        ]
-        console.log(this.keyboards);
+        this.keyboards = [];
+        var answerArray = this.question.displayAnswer.split(',');
+        this._shuffleArray(answerArray);
+        answerArray.push('<');
+        this.keyboards.push(answerArray);
     }
 
     _shuffleArray(array:Array<any>){
@@ -86,15 +79,18 @@ export class AnswerComponent implements OnChanges {
 
     selectKey(character: string) {
         if (character == '<') {
-            if (this.answer.length > 0) {
-                this.answer = this.answer.slice(0, this.answer.length -1);
+            if (this.currentAnswerIndex > 0) {
+                this.answerHoles[this.currentAnswerIndex] = '';
+                this.currentAnswerIndex--;
             }
             return;
         }
 
-        this.answer += character;
+        this.answerHoles[this.currentAnswerIndex] = character;
+        this.currentAnswerIndex++;
 
-        if (this.question.answer && this.question.answer.length > 0 && this.answer.length == this.question.answer.length)
+        this.answer = this.answerHoles.join('').trim();
+        if (this.question.answer.length > 0 && this.answer.length >= this.question.answer.length)
         {
             this.submitAnswer();
         }
