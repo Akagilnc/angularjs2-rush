@@ -80,8 +80,8 @@ export class AnswerComponent implements OnChanges {
     selectKey(character: string) {
         if (character == '<') {
             if (this.currentAnswerIndex > 0) {
-                this.answerHoles[this.currentAnswerIndex] = '';
                 this.currentAnswerIndex--;
+                this.answerHoles[this.currentAnswerIndex] = '_';
             }
             return;
         }
