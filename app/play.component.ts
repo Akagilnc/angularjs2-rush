@@ -12,6 +12,13 @@ import {AppSettings} from './app-settings';
   template: `
     <div class="row">
       <div class="col-md-12">
+        <div class="pull-right">
+          {{score}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
         <question [question]="question"></question>
       </div>
     </div>
@@ -61,6 +68,7 @@ export class PlayComponent implements OnInit {
   private modalSubmitButtonLabel = 'Next question';
 
   private modalClass = 'modal-sm';
+  private score:number = 0;
   constructor(private gameService: GameService,
               private timerService: TimerService) {
 
@@ -76,6 +84,7 @@ export class PlayComponent implements OnInit {
 
     this.gameService.onQuestionChanged().subscribe((question:Question) => {
       this.question = question;
+      this.completedPercent = this.gameService.getCompletedPercent();
     })
   }
 
@@ -88,6 +97,7 @@ export class PlayComponent implements OnInit {
       this.resultText = 'Your answer is NOT correct.';
     }
     this.completedPercent = this.gameService.getCompletedPercent();
+    this.score = this.gameService.getScore();
     this.resultModal.open();
   }
 

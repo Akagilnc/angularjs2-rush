@@ -16,7 +16,7 @@ import {IntroductionComponent} from "./introduction.component";
     directives:[PlayComponent, AnswerComponent, ROUTER_DIRECTIVES],
     providers:[GameService],
     template:`
-    <div class="container" style="background-image: url('/app/assets/sky.jpg'); background-size: 100% 100%;background-origin: border-box">
+    <div class="container app-container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 header">
                 <div class="row">
