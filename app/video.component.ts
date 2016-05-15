@@ -29,7 +29,7 @@ export class VideoComponent implements OnChanges, AfterViewInit {
 
   playVideo() {
     if (this.source && this.videoElem && this.sourceElem) {
-      console.log(this.source);
+
       setTimeout(() => {
         this.sourceUrl = this.source;
 

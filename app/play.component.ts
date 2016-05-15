@@ -90,7 +90,7 @@ export class PlayComponent implements OnInit {
   }
 
   onSubmitAnswer(answer:string) {
-    console.log(this.question, this.answer, answer);
+
     var result = this.gameService.submitAnswer(this.question, answer);
     if (result) {
       this.resultText = 'Your answer is correct.';

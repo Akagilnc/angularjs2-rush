@@ -59,7 +59,6 @@ export class QuestionComponent implements OnChanges {
 
   ngOnChanges(changes: any) {
     this.play();
-    console.log(this.question);
   }
 
   play() {
