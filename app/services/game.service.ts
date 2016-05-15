@@ -10,6 +10,7 @@ export class GameService {
   private $questionChangeNotifier: any;
   private currentQuestionIndex: number = 0;
   private totalSuccessQuestion: number = 0;
+  private totalCompletedQuestion: number = 0;
 
   constructor() {
     this.$questionChange = Observable.create((observer:any) => {
@@ -32,6 +33,7 @@ export class GameService {
     answer = answer.toLocaleLowerCase();
     var correctAnswer: string = question.answer.toLowerCase();
 
+    this.totalCompletedQuestion++;
     if (answer == correctAnswer) {
       this.totalSuccessQuestion++;
       return true;
@@ -66,6 +68,14 @@ export class GameService {
   publishChangeQuestion() {
     this.$questionChangeNotifier.next(this.getCurrentQuestion());
   }
+
+  getCompletedPercent() {
+    return Math.floor((this.totalCompletedQuestion / this.questionData.length) * 100);
+  }
+
+  getScore() {
+    return this.totalSuccessQuestion * 10;
+  }
 }
 
 var data:Array<Question> = [
@@ -73,7 +83,7 @@ var data:Array<Question> = [
   {
     question: "nu",
     answer: 'ぬ',
-    displayAnswer:'',
+    displayAnswer: '',
     type: 'text',
     position : 1,
     imageUrl : '',
@@ -82,7 +92,7 @@ var data:Array<Question> = [
   {
     question: "to",
     answer: 'と',
-    displayAnswer:'',
+    displayAnswer: '',
     type: 'text',
     position : 2,
     imageUrl : '',
@@ -91,7 +101,7 @@ var data:Array<Question> = [
   {
     question: "u",
     answer: 'う',
-    displayAnswer:'',
+    displayAnswer: '',
     type: 'text',
     position : 3,
     imageUrl : '',
@@ -100,7 +110,7 @@ var data:Array<Question> = [
   {
     question: "ne",
     answer: 'ね',
-    displayAnswer:'',
+    displayAnswer: '',
     type: 'text',
     position : 4,
     imageUrl : '',
@@ -109,61 +119,246 @@ var data:Array<Question> = [
   {
     question: "su",
     answer: 'す',
-    displayAnswer:'',
+    displayAnswer: '',
     type: 'text',
     position : 5,
     imageUrl : '',
     youtubeVideoId : ''
   },
   {
-    question: '1-6',
-    answer: '',
+    question: 'i-nu',
+    answer: 'いぬ',
+    displayAnswer: '',
     type: 'text',
     position: 6,
     imageUrl: '',
     youtubeVideoId: '7WAQOUE74sk'
   },
   {
-    question: '1-7',
-    answer: '',
+    question: 'to-ri',
+    answer: 'とり',
+    displayAnswer: '',
     type: 'text',
     position: 7,
     imageUrl: '',
     youtubeVideoId: 'n4YaDxr73HI'
   },
   {
-    question: '1-8',
-    answer: '',
+    question: 'u-ma',
+    answer: 'うま',
+    displayAnswer: '',
     type: 'text',
     position: 8,
     imageUrl: '',
     youtubeVideoId: 'bGW_2hJrLVY'
   },
   {
-    question: '1-9',
-    answer: '',
+    question: 'ne-ko',
+    answer: 'ねこ',
+    displayAnswer: '',
     type: 'text',
     position: 9,
     imageUrl: '',
     youtubeVideoId: '3sU4_fmPDMo'
   },
   {
-    question: '1-10',
-    answer: '',
+    question: 'ri-su',
+    answer: 'りす',
+    displayAnswer: '',
     type: 'text',
     position: 10,
     imageUrl: '',
     youtubeVideoId: 'eqOvWOr9ayw'
   },
   {
-    question: '3-6',
-    answer: '',
+    question: "na",
+    answer: 'な',
+    displayAnswer: '',
     type: 'text',
-    position: 6,
-    imageUrl: './assets/Q 3-6 food.jpg',
-    youtubeVideoId: 'eqOvWOr9ayw',
+    position : 11,
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "mi",
+    answer: 'み',
+    displayAnswer: '',
+    type: 'text',
+    position : 12,
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "e",
+    answer: 'え',
+    displayAnswer: '',
+    type: 'text',
+    position : 13,
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "tsu",
+    answer: 'つ',
+    displayAnswer: '',
+    type: 'text',
+    position : 14,
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "gi",
+    answer: 'ぎ',
+    displayAnswer: '',
+    type: 'text',
+    position : 15,
+    imageUrl : '',
+    youtubeVideoId : ''
+  },
+  {
+    question: 'ka-ka-na',
+    answer: 'さかな',
+    displayAnswer: '',
+    type: 'text',
+    position: 16,
+    imageUrl: '',
+    youtubeVideoId: 'Ha_VUkhZQHU'
+  },
+  {
+    question: 'ne-zu-mi',
+    answer: 'ねずみ',
+    displayAnswer: '',
+    type: 'text',
+    position: 17,
+    imageUrl: '',
+    youtubeVideoId: '1QDTjlLcmYM'
+  },
+  {
+    question: 'ka-e-ru',
+    answer: 'かえる',
+    displayAnswer: '',
+    type: 'text',
+    position: 18,
+    imageUrl: '',
+    youtubeVideoId: 'kc6E_AkDiyo'
+  },
+  {
+    question: 'ke-tsu-ne',
+    answer: 'きつね',
+    displayAnswer: '',
+    type: 'text',
+    position: 19,
+    imageUrl: '',
+    youtubeVideoId: '1SvbmghDFxw'
+  },
+  {
+    question: 'u-sa-gi',
+    answer: 'うさぎ',
+    displayAnswer: '',
+    type: 'text',
+    position: 20,
+    imageUrl: '',
+    youtubeVideoId: 'Jsnc05_kiUA'
+  },
+  {
+    question: "be",
+    answer: 'べ',
+    displayAnswer: '',
+    type: 'text',
+    position: 21,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "ya",
+    answer: 'や',
+    displayAnswer: '',
+    type: 'text',
+    position: 22,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "shi",
+    answer: 'し',
+    displayAnswer: '',
+    type: 'text',
+    position: 23,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "wa",
+    answer: 'わ',
+    displayAnswer: '',
+    type: 'text',
+    position: 24,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: "ta",
+    answer: 'た',
+    displayAnswer: '',
+    type: 'text',
+    position: 25,
+    imageUrl: '',
+    youtubeVideoId : ''
+  },
+  {
+    question: 'ta-be-mo-no',
+    answer: 'たべもの',
+    displayAnswer: '',
+    type: 'text',
+    position: 26,
+    imageUrl: 'app/assets/q3-6food.jpg',
+    youtubeVideoId: '',
     videoUrl: '',
-    audioUrl: './assets/3-6 food.mp3'
+    audioUrl: 'app/assets/q3-6food.mp3'
+  },
+  {
+    question: 'ya-ki-to-ri',
+    answer: 'やきとり',
+    displayAnswer: '',
+    type: 'text',
+    position: 27,
+    imageUrl: 'app/assets/q3-7yakitori.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q3-7yakitori.mp3'
+  },
+  {
+    question: 'o-i-shi-i',
+    answer: 'おいしい',
+    displayAnswer: '',
+    type: 'text',
+    position: 28,
+    imageUrl: 'app/assets/q3-8tasty.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q3-8tasty.mp3'
+  },
+  {
+    question: 'ka-wa-i-i',
+    answer: 'かわいい',
+    displayAnswer: '',
+    type: 'text',
+    position: 29,
+    imageUrl: 'app/assets/q3-9cute.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q3-9cute.mp3'
+  },
+  {
+    question: 'ta-no-shi-i',
+    answer: 'たのしい',
+    displayAnswer: '',
+    type: 'text',
+    position: 30,
+    imageUrl: 'app/assets/q3-10fun.jpg',
+    youtubeVideoId: '',
+    videoUrl: '',
+    audioUrl: 'app/assets/q3-10fun.mp3'
   },
 
 ];

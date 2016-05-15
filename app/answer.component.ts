@@ -1,7 +1,7 @@
 /**
  * Created by deronlee on 5/14/16.
  */
-import {Component, Input, OnChanges, SimpleChange, EventEmitter} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChange, EventEmitter, Output} from '@angular/core';
 import {Question} from './interfaces';
 import {GameService, SoundService} from './services';
 import {NgFor, NgClass} from '@angular/common';
@@ -17,6 +17,7 @@ import {NgFor, NgClass} from '@angular/common';
 export class AnswerComponent implements OnChanges{
     @Input('question') question: Question;
     @Input('answer') answer: string;
+    @Output('onSubmitAnswer') onSubmitAnswerEvent: EventEmitter<string> = new EventEmitter<string>();
 
     private keyboards: Array<Array<string>>;
 
@@ -84,22 +85,12 @@ export class AnswerComponent implements OnChanges{
 
         if (this.question.answer && this.question.answer.length > 0 && this.answer.length == this.question.answer.length)
         {
-            this.checkAnswer();
+            this.submitAnswer();
         }
     }
 
-    checkAnswer(){
-        var checkResult: boolean = this.gameService.submitAnswer(this.question, this.answer);
-
-        if(checkResult) {
-            //display correct information
-        }else {
-            //display wrong information
-        }
-
-        this.gameService.nextQuestion();
-
-
+    submitAnswer() {
+        this.onSubmitAnswerEvent.emit(this.answer);
     }
 
 }
