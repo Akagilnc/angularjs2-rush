@@ -18,6 +18,24 @@
             <div class="col-md-12 keyboard-line">
                 <span *ngFor="let key of keyboards[1]" class="key" (click)="selectKey(key)">{{key}}</span>
             </div>
+
+            <center>
+                <a (click)="showCharacterList()">Show character list</a>
+            </center>
         </div>
     </div>
 </div>
+
+
+<modal  #characterList
+    [title]="appTitle"
+    [cancelButtonLabel]="characterListmodalSubmitLabel"
+    [modalClass]="modalClass"
+    [hideCloseButton]="true"
+    [closeOnEscape]="true"
+    [closeOnOutsideClick]="true">
+
+    <modal-content>
+    Character list
+    </modal-content>
+</modal>

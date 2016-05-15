@@ -1,29 +1,40 @@
 /**
  * Created by deronlee on 5/14/16.
  */
-import {Component, Input, OnChanges, SimpleChange, EventEmitter, Output} from 'angular2/core';
+import {Component, ViewChild, Input, OnChanges, SimpleChange, EventEmitter, Output} from 'angular2/core';
 import {Question} from './interfaces';
 import {GameService, SoundService} from './services';
 import {NgFor, NgClass} from 'angular2/common';
+import {ModalComponent} from './modal.component';
+import {AppSettings} from './app-settings';
 //import {QuestionComponent} from './question.component';
 
 @Component({
     selector: 'answer',
-    directives: [NgFor, NgClass],
+    directives: [NgFor, NgClass, ModalComponent],
     //providers: [QuestionComponent, SoundService],
     templateUrl: './app/answer.component.html',
     styles: []
 })
-export class AnswerComponent implements OnChanges{
+export class AnswerComponent implements OnChanges {
+    @ViewChild('characterList') characterList: ModalComponent;
     @Input('question') question: Question;
     @Input('answer') answer: string;
     @Output('onSubmitAnswer') onSubmitAnswerEvent: EventEmitter<string> = new EventEmitter<string>();
 
     private keyboards: Array<Array<string>>;
+    private appTitle = AppSettings.TITLE;
+    private modalSubmitButtonLabel = 'Next question';
+    private characterListmodalSubmitLabel = 'OK';
+    private modalClass = 'modal-sm';
 
     constructor(private gameService: GameService) {
         this.keyboards = null;
         this.question = null;
+    }
+
+    showCharacterList() {
+        this.characterList.open();
     }
 
     ngOnChanges(changes: {[ propName: string]: SimpleChange}) {
