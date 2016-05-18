@@ -16,9 +16,7 @@
     "typings/main.d.ts"
   ],
   "files": [
-    "./app/main.ts",
-    "./typings/es6-promise/es6-promise.d.ts",
-    "./node_modules/angular2/typings/browser.d.ts"
+    "./app/main.ts"
 
   ]
 }
