@@ -1,7 +1,6 @@
 /**
  * Created by deronlee on 5/14/16.
  */
-///<reference path="../../node_modules/angular2/typings/browser.d.ts"/>
 
 import {Component, OnInit} from 'angular2/core';
 import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
