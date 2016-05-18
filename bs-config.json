@@ -1,0 +1,10 @@
+{
+
+  "port": process.env.PORT || 3000,
+  "injectChanges": false,
+  "files": ["./**/*.{html,htm,css,js}"],
+  "watchOptions": { "ignored": "node_modules" },
+  "server": { "baseDir": "./" }
+
+
+}

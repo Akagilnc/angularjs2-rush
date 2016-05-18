@@ -2,7 +2,6 @@
   "name": "angular2-quickstart",
   "version": "1.0.0",
   "description": "QuickStart package.json from the documentation, supplemented with testing support",
-  "start": "http-server -p process.env.PORT || 3000",
   "scripts": {
     "start": "tsc --outDir dist && concurrently \"tsc -w --outDir dist\" \"lite-server\" ",
     "docker-build": "docker build -t ng2-quickstart .",
